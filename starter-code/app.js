@@ -25,12 +25,28 @@ client.getJokeCategories()
 
 		 app.get('/joke-by-category', (req, res) => {
 		   res.render('joke-by-category',data);
-		 });
+		 })
+
 
   })
   .catch((err)=> {
     console.error(err);
   });
+
+	app.get('/joke-by-category/:category', (req, res) => {
+		client.getRandomJoke(req.params.category).then(function (response) {
+			// console.log(response.value);
+			let data = {
+				joke: response.value
+			}
+				// to stuff here
+		res.render('joke-by-category',data);
+		}).catch(function (err) {
+				// handle error
+				console.log(err);
+		});
+
+	});
 
 
 	// Retrieve a random chuck joke from the given category
