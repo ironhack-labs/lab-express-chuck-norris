@@ -1,0 +1,12 @@
+body {
+  color: blue;
+  background-color: bisque;
+}
+
+h1 {
+  color:purple;
+  border: 2px solid white;
+}
+p{
+  color:yellow;
+}
