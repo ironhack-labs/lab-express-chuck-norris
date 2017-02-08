@@ -14,7 +14,7 @@ app.use(express.static('public'))
 
 client.getJokeCategories()
   .then((response)=>  {
-	console.log(response);
+	// console.log(response);
 	let data = {
 		categories: response
 	}
@@ -22,10 +22,16 @@ client.getJokeCategories()
 		 app.get('/categories', (req, res) => {
 		   res.render('categories',data);
 		 });
+
+		 app.get('/joke-by-category', (req, res) => {
+		   res.render('joke-by-category',data);
+		 });
+
   })
   .catch((err)=> {
     console.error(err);
   });
+
 
 	// Retrieve a random chuck joke from the given category
 	client.getRandomJoke('dev').then(function (response) {

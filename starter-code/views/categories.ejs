@@ -1,8 +1,8 @@
 <h1>Categories</h1>
 
 <ul>
-<% categories.forEach((category) => {
-	let linkName = "/${category}";%>
-	<li><a href=linkName><%= category %></a></li>
+<% categories.forEach((category, index) => {
+	var linkName = "/" + category;%>
+	<li><a href="/joke-by-category"><%= category %></a></li>
 <%})%>
 </ul>
