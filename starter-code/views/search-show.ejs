@@ -5,6 +5,9 @@
     <link rel="stylesheet" type="css/text" href="../public/stylesheets/style.css">
   </head>
   <body>
-    <p><%=joke%></p>
+    <p>Here are all the jokes with <%=word%> in it.</p>
+    <% items.forEach(function (item){ %>
+      <p><%=item.value%></p>
+    <% });%>
   </body>
 </html>
