@@ -1,3 +1,6 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<h1>Categories</h1>
+<% response.forEach((result) => { %>
+<br>
+<a href="../category/<%= result %>"><%= result %></a>
+
+<%  }); %>
