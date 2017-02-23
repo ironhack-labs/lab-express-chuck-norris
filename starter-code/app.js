@@ -62,6 +62,7 @@ app.get('/', (req, res, next) => {
   res.render('index',{
   });
 });
+
 app.get('/random', (req, res, next) => {
   chuck.getRandomJoke()
   .then((response) => {
@@ -90,12 +91,13 @@ app.get('/category', (req, res, next) => {
   });
 });
 app.get('/category/explicit', (req, res, next) => {
-  chuck.getJokeCategories('dev')
+  chuck.getRandomJoke('explicit')
   .then((response)=>  {
 
-    console.log(response);
+    console.log(response.value);
+    let value = response.value;
     res.render('explicit', {
-      response: response
+      value: value
     });
   })
   .catch((err)=> {
@@ -104,12 +106,13 @@ app.get('/category/explicit', (req, res, next) => {
   });
 });
 app.get('/category/dev', (req, res, next) => {
-  chuck.getJokeCategories()
+  chuck.getRandomJoke('dev')
   .then((response)=>  {
 
-    console.log(response);
-    res.render('categories', {
-      response: response
+    console.log(response.value);
+    let value = response.value;
+    res.render('explicit', {
+      value: value
     });
   })
   .catch((err)=> {
@@ -118,12 +121,13 @@ app.get('/category/dev', (req, res, next) => {
   });
 });
 app.get('/category/movie', (req, res, next) => {
-  chuck.getJokeCategories()
+  chuck.getRandomJoke('movie')
   .then((response)=>  {
 
-    console.log(response);
-    res.render('categories', {
-      response: response
+    console.log(response.value);
+    let value = response.value;
+    res.render('explicit', {
+      value: value
     });
   })
   .catch((err)=> {
@@ -132,26 +136,13 @@ app.get('/category/movie', (req, res, next) => {
   });
 });
 app.get('/category/food', (req, res, next) => {
-  chuck.getJokeCategories()
+  chuck.getRandomJoke('food')
   .then((response)=>  {
 
-    console.log(response);
-    res.render('categories', {
-      response: response
-    });
-  })
-  .catch((err)=> {
-    console.log("category broke");
-    // handle error
-  });
-});
-app.get('/category/celebrity', (req, res, next) => {
-  chuck.getJokeCategories()
-  .then((response)=>  {
-
-    console.log(response);
-    res.render('categories', {
-      response: response
+    console.log(response.value);
+    let value = response.value;
+    res.render('explicit', {
+      value: value
     });
   })
   .catch((err)=> {
@@ -160,12 +151,13 @@ app.get('/category/celebrity', (req, res, next) => {
   });
 });
 app.get('/category/science', (req, res, next) => {
-  chuck.getJokeCategories()
+  chuck.getRandomJoke('science')
   .then((response)=>  {
 
-    console.log(response);
-    res.render('categories', {
-      response: response
+    console.log(response.value);
+    let value = response.value;
+    res.render('explicit', {
+      value: value
     });
   })
   .catch((err)=> {
@@ -173,139 +165,28 @@ app.get('/category/science', (req, res, next) => {
     // handle error
   });
 });
-app.get('/category/political', (req, res, next) => {
-  chuck.getJokeCategories()
-  .then((response)=>  {
-
-    console.log(response);
-    res.render('categories', {
-      response: response
-    });
-  })
-  .catch((err)=> {
-    console.log("category broke");
-    // handle error
-  });
-});
-app.get('/category/sport', (req, res, next) => {
-  chuck.getJokeCategories()
-  .then((response)=>  {
-
-    console.log(response);
-    res.render('categories', {
-      response: response
-    });
-  })
-  .catch((err)=> {
-    console.log("category broke");
-    // handle error
-  });
-});
-app.get('/category/religion', (req, res, next) => {
-  chuck.getJokeCategories()
-  .then((response)=>  {
-
-    console.log(response);
-    res.render('categories', {
-      response: response
-    });
-  })
-  .catch((err)=> {
-    console.log("category broke");
-    // handle error
-  });
-});
-app.get('/category/animal', (req, res, next) => {
-  chuck.getJokeCategories()
-  .then((response)=>  {
-
-    console.log(response);
-    res.render('categories', {
-      response: response
-    });
-  })
-  .catch((err)=> {
-    console.log("category broke");
-    // handle error
-  });
-});
-app.get('/category', (req, res, next) => {
-  chuck.getJokeCategories()
-  .then((response)=>  {
-
-    console.log(response);
-    res.render('categories', {
-      response: response
-    });
-  })
-  .catch((err)=> {
-    console.log("category broke");
-    // handle error
-  });
-});
-app.get('/category', (req, res, next) => {
-  chuck.getJokeCategories()
-  .then((response)=>  {
-
-    console.log(response);
-    res.render('categories', {
-      response: response
-    });
-  })
-  .catch((err)=> {
-    console.log("category broke");
-    // handle error
-  });
-});
-app.get('/category', (req, res, next) => {
-  chuck.getJokeCategories()
-  .then((response)=>  {
-
-    console.log(response);
-    res.render('categories', {
-      response: response
-    });
-  })
-  .catch((err)=> {
-    console.log("category broke");
-    // handle error
-  });
-});
-app.get('/category', (req, res, next) => {
-  chuck.getJokeCategories()
-  .then((response)=>  {
-
-    console.log(response);
-    res.render('categories', {
-      response: response
-    });
-  })
-  .catch((err)=> {
-    console.log("category broke");
-    // handle error
-  });
-});
-app.get('/category', (req, res, next) => {
-  chuck.getJokeCategories()
-  .then((response)=>  {
-
-    console.log(response);
-    res.render('categories', {
-      response: response
-    });
-  })
-  .catch((err)=> {
-    console.log("category broke");
-    // handle error
-  });
-});
-
-
-
-
 app.get('/search', (req, res, next) => {
-  res.render('search');
+
+  let keyword = req.query.keyword;
+  console.log(keyword);
+  chuck.search(keyword)
+  .then((response) =>  {
+
+    let value = response.items[0].value;
+    console.log(response.items[0].value);
+    res.render('search', {
+      value: value
+    });
+  })
+  .catch((err)=> {
+    console.log("err");
+    res.send("category broke");
+  });
+
 });
+
+
+
 app.listen(3000, () => {
   console.log("Chuck is running");
 });
