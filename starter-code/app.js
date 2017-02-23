@@ -33,6 +33,7 @@ app.use(express.static('public')); //makes the Public folder public http://local
 app.use(expressLayouts); // for layout templates
 app.use(bodyParser.urlencoded({ extended: true}));
 app.set('layout', 'layouts/main-layout');
+app.use(bodyParser.urlencoded({extended: true}));
 
 */
 
@@ -41,13 +42,14 @@ const expressLayouts = require('express-ejs-layouts');
 const express = require('express');
 const app = express();
 const Chuck  = require('chucknorris-io');
+const bodyParser = require('body-parser');
 const chuck = new Chuck();
 app.set('views', __dirname + '/views'); //point Express to EJS/HTML files in the Views folder
 app.set('view engine', 'ejs'); //Express will use EJS package for files in Views
 app.set('layout', 'layout/main-layout');
 app.use(express.static('public')); //makes the Public folder public http://localhost:3000/images/1.png
 app.use(expressLayouts); // for layout templates
-
+app.use(bodyParser.urlencoded({extended: true}));
 // chuck.getRandomJoke()
 // .then((response) => {
 //   const jokes = response.value;
@@ -59,7 +61,9 @@ app.use(expressLayouts); // for layout templates
 
 
 app.get('/', (req, res, next) => {
+
   res.render('index',{
+
   });
 });
 
@@ -165,9 +169,10 @@ app.get('/category/science', (req, res, next) => {
     // handle error
   });
 });
-app.get('/search', (req, res, next) => {
+app.post('/search', (req, res, next) => {
+  console.log(req.body.keyword);
+  const keyword = req.body.keyword;
 
-  let keyword = req.query.keyword;
   console.log(keyword);
   chuck.search(keyword)
   .then((response) =>  {
