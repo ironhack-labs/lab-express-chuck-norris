@@ -1,0 +1,18 @@
+<form action = "/search-chuck-norris-jokes" method="post">
+  <label for="search-input">Whats on your mind?</label>
+  <input id="search-input" type="text" name="searchTerm" />
+  <button type="submit">Send Nukes!</button>
+</form>
+<p>
+  Jokes matching: <%= searchTerm %>
+</p>
+<p>
+  <ul>
+
+  <% jokeArray.forEach((joke) =>{ %>
+      <li>
+        <%= joke.value %>
+      </li>
+  <% }); %>
+  </ul>
+</p>
