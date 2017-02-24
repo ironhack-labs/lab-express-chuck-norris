@@ -1,0 +1,7 @@
+<h1>Joke categories</h1>
+
+<ul>
+  <% categories.forEach((list) => { %>
+    <li> <a class="categories" name="links" href="/joke-by-category/<%= list %>"> <%= list %> </a> </li>
+<% }); %>
+</ul>

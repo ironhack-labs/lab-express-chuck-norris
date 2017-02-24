@@ -3,12 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title> Chucknorris  </title>
+    <link rel="stylesheet" href="/css/style.min.css">
   </head>
   <body>
 
-    <a href="/">Home</a>
-    <a href="/categories">Categories</a>
-    <a href="/joke-by-category">Joke Category</a>
-    <%- body -%>
+  <div class="container">
+    <a class="pages" href="/">Home</a>
+    <a class="pages" href="/categories">Categories</a>
+    <a class="pages" href="/jokes">Joke Category</a>
+    <a class="pages" href="/search">Search</a>
+  </div>
+
+  <div class="footer-container">
+    <div class="fix-width">
+      <%- body -%>
+
+    </div>
+
+  </div>
+
+    <footer>
+      <p> Made with &hearts; at Ironhack </p>
+    </footer>
   </body>
 </html>
