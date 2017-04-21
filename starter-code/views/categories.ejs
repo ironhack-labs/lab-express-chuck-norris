@@ -1,3 +1,8 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<h1>Categories</h1>
+
+<ul>
+<% categories.forEach((category, index) => {
+	var linkName = "/joke-by-category/" + category;%>
+	<li><a href=<%=linkName%>><%= category %></a></li>
+<%})%>
+</ul>
