@@ -1,3 +1,6 @@
   <body>
     <h1>Categories</h1>
+    <% categories.forEach((category) => {%>
+      <p><a href="/categories/<%=category%>"> <%=category%> </a></p> <%
+    }) %>
   </body>
