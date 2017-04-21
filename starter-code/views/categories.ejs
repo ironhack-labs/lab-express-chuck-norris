@@ -1,3 +1,6 @@
   <body>
     <h1>Categories</h1>
+    <%for(i=0;i<jokeCategories.length;i++){%>
+      <a href="/categories/<%=jokeCategories[i]%>"><%=jokeCategories[i]%></a>
+    <%}%>
   </body>
