@@ -1,1 +1,8 @@
+<ul>
+<% for(i = 0; i < categories.length; i += 1) { %>
+  <% let route = `/${categories[i]}`; %>
+  <li><a href="<%= route %>"> ><%= categories[i] %></a></li>
+<% } %>
+</ul>
 
+<h2> <%= categories[i] %> </h2>
