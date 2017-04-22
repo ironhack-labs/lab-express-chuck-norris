@@ -31,7 +31,7 @@ footer {
   vertical-align: middle;
   font-size: 30px;
   font-weight: bold;
-  margin: 0 auto;
+  margin: 20px auto;
   background-color: white;
   width: 600px;
   box-shadow: 1px 1px 10px lightgrey;
@@ -51,4 +51,9 @@ footer {
   border-radius: 8px;
   border-color: black;
   box-shadow: 1px 1px 10px lightgrey;
+}
+
+.about {
+  width: 600px;
+  margin: 10px auto;
 }
