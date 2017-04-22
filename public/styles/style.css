@@ -1,0 +1,32 @@
+li{
+    height: 40px;
+    width: 40px;
+    padding: 40px;
+    display: inline;
+}
+
+p{
+  font-size: 30px;
+}
+
+.btn {
+  border: 1px solid black;
+}
+
+a{
+  color: Green;
+}
+
+a.catLinks{
+  color: Green;
+  font-size: 25px;
+}
+
+.randomAF {
+color: #18472c;
+font-size: 20px;
+}
+footer{
+font-size: 30px;
+padding-top: 40px;
+}

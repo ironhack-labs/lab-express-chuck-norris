@@ -1,0 +1,17 @@
+<h2>Categories</h2>
+
+<div>
+  <p> Hey, click on any of the links below to view a Chuck Norris Fact of your choice.</p>
+</div>
+<br>
+
+<div class='row'>
+  <% category.forEach( (cat) => { %>
+
+    <div class='col-sm-4'>
+      <a class="catLinks" href="/joke-by-category?cat=<%= cat %>"><%= cat %></a>
+    </div>
+
+    <% }) %>
+
+</div>
