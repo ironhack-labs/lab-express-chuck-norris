@@ -1,14 +1,8 @@
-  <body>
     <h1>Categories</h1>
 
     <p>Here are categories: </p>
     <% category.forEach((oneCategory) => { %>
 
-      <p> <a href="" id = ""> <%= oneCategory %> </a> </p>
+      <p> <a href="categories?cat=<%=oneCategory%>" id = ""> <%= oneCategory %> </a> </p>
 
     <% })%>
-
-
-
-
-  </body>
