@@ -1,0 +1,17 @@
+body {
+	background: url(./img/chuck-bg.jpg);
+	color: #fff;
+	font-size: 100px;
+	font-family: helveltica, sans;
+}
+
+a {
+	margin-bottom: 90px;
+	color: #fff;
+	font-size: 50px;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #ED1C24;
+}
