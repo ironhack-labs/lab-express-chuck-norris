@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title> Express views </title>
+    <!-- <link rel='stylesheet' href="/styles/styles.css"> -->
+  </head>
+  <body>
+    <header>
+      <h1>Express forms</h1>
+        <nav>
+          <ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/chuck-random.ejs'>Random joke</a></li>
+            <li><a href='/categories-view.ejs'>Jokes by category</a></li>
+            <li><a href='/search-view.ejs'>Find a joke that suits </a></li>
+
+          </ul>
+        </nav>
+      </header>
+
+      <%- body -%>
+
+    <footer>
+      Made by Art™
+    </footer>
+  </body>
+</html>
