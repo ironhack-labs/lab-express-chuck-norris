@@ -57,8 +57,18 @@
     });
   });
 
+  app.post('/search', (req,res,next) => {
+    client.search(req.body.searchTerm).then(function(searchResult){
+      let finalJoke = searchResult.items;
+      res.render('search.ejs',{
+        finalJoke
+    });
+  });
+  });
+
   app.get('/search', (req,res,next) => {
-        res.render('search.ejs',{
+    res.render('search.ejs', {
+     finalJoke: ''
       });
   });
 
