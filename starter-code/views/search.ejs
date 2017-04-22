@@ -1,1 +1,17 @@
 <h2>Search</h2>
+
+
+<form action="/search" method="post">
+  <label for="search-term">Search: </label>
+  <input id="search-term" type="text" name="searchTerm">
+  <button type="submit">Search</button>
+</form>
+
+<% if (finalJoke.length > 0){ %>
+  <% finalJoke.forEach((oneJoke) => { %>
+    <ul>
+      <li><p> <%= oneJoke.value %> </p></li>
+      <br>
+    </ul>
+<% }) %>
+<% } %>
