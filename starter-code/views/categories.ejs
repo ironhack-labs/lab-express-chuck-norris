@@ -4,8 +4,8 @@
   <ul style="padding: 1em;" class="list-inline">
      <% display.forEach( (categories) => { %>
        <li style="padding: 4em;">
-         <form method="get" action="/categories-quotes" >
-          <a href="/category?cat= <%= categories %> " name= "categoryValue">
+         <form method="get" action="/joke-by-category" >
+          <a href="/joke-by-category?cat=<%= categories %> " name= "categoryValue">
            <%= categories %>
           </a>
          </form>
