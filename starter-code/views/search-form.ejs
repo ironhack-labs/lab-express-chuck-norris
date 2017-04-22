@@ -4,8 +4,16 @@
 <button type="submit">Search</button>
 </form>
 
-<% finalJoke.forEach((oneJoke) => { %>
+<% if (finalJoke.length > 0){ %>
 
-  <p> <%= oneJoke.value %> </p>
+  <% finalJoke.forEach((oneJoke) => { %>
 
-<% }) %>
+<ul>
+  <li><p> <%= oneJoke.value %> </p></li>
+  <br>
+</ul>
+
+
+  <% }) %>
+
+<% } %>

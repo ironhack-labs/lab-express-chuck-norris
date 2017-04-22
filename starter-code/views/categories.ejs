@@ -1,8 +1,11 @@
 <% categories.forEach(function(oneCategory){ %>
 
+<div class="col-lg-4" "col-md-4" "col-sm-4" "col-xs-4">
   <form method="get" action="/joke-by-category" >
     <a href="/joke-by-category?cat=<%= oneCategory %> " name= "categoryValue"> <%= oneCategory %> </a>
   </form>
   <br>
+</div>
+
 
 <% }) %>

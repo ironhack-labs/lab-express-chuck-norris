@@ -46,8 +46,8 @@ app.get('/joke-by-category', (req, res, next) => {
 });
 
 app.get('/search', (req, res, next) => {
-  res.render('search-form.ejs',{
-    jokesResult: ''
+  res.render('search-form.ejs', {
+    finalJoke: ''
   });
 });
 
