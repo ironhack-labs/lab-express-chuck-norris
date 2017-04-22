@@ -1,16 +1,9 @@
-  <body>
-    <h1>Categories</h1>
-
-
-    <p> Below you can find a list of highly humerous jokes </p>
-    <nav>
+    <h2>Categories</h2>
+<p> click a category to see a joke </p>
       <ul>
-         <% category.forEach((cat) => { %>
-      <li>  <a href="<%= cat %>"> <%= cat %> </a> </li>
+         <% category.forEach((oneCategory) => { %>
+      <li>
+        <a href="/categories?cat=<%=oneCategory%>"> <%= oneCategory %> </a>
+      </li>
        <% }) %>
      </ul>
-    </nav>
-
-
-
-  </body>
