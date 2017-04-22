@@ -33,23 +33,26 @@
     });
   });
 
+
+  client.getJokeCategories().then((array)=>  {
+    categories = array;
+  });
+
   app.get('/category', (req, res, next) => {
-    client.getJokeCategories().then((array)=>  {
-      categories = array;
+
       res.render('categories.ejs', {
         display: categories
       });
-   }).catch((err)=> {
-      console.log('Something went wrong');
-   });
   });
 
 
-  app.get('/joke-category', (req, res, next) => {
+  app.get('/joke-by-category', (req, res, next) => {
     client.getRandomJoke(req.query.cat).then((categories) => {
-      newOne = categories;
+      getCategory = categories;
+      newOne = categories.value;
     res.render('joke-by-category.ejs', {
-      catGory: newOne
+      catGory: newOne,
+      displayCategory : req.query.cat
       });
     });
   });
