@@ -1,3 +1,17 @@
   <body>
     <h1>Categories</h1>
+
+
+    <p> Below you can find a list of highly humerous jokes </p>
+    <nav>
+      <ul>
+         <% category.forEach((oneCat) => { %>
+      <li>  <a href="<%= oneCat %>"> <%= oneCat %> </a> </li>
+      
+       <% }) %>
+     </ul>
+    </nav>
+
+
+
   </body>
