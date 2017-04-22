@@ -1,3 +1,14 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<h2>Categories</h2>
+
+<h3>Select the category of your preference:</h3>
+  <ul style="padding: 1em;" class="list-inline">
+     <% display.forEach( (categories) => { %>
+       <li style="padding: 4em;">
+         <form method="get" action="/categories-quotes" >
+          <a href="/category?cat= <%= categories %> " name= "categoryValue">
+           <%= categories %>
+          </a>
+         </form>
+       </li>
+     <% }) %>
+  </ul>
