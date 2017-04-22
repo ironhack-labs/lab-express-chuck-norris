@@ -1,0 +1,54 @@
+body {
+  font-family: arial;
+  text-align: center;
+  background-color: #F5F5F5;
+}
+
+.nav li {
+  display: inline-block;
+  margin: 10px;
+}
+
+.nav {
+  border-bottom: 1px solid lightgrey;
+}
+
+a,
+a:hover,
+a:active {
+  color: black;
+}
+
+footer {
+  margin-bottom: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.joke {
+  vertical-align: middle;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 auto;
+  background-color: white;
+  width: 600px;
+  box-shadow: 1px 1px 10px lightgrey;
+  border-radius: 8px;
+  padding: 50px 10px;
+}
+
+.categories {
+  color: red;
+}
+
+.reload-button {
+  margin: 20px auto;
+  background-color: white;
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  border-color: black;
+  box-shadow: 1px 1px 10px lightgrey;
+}
