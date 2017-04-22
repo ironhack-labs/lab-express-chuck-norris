@@ -1,0 +1,11 @@
+<form action="/search" method="post">
+  <label for="search-term">Search: </label>
+  <input id="search-term" type="text" name="searchTerm">
+<button type="submit">Search</button>
+</form>
+
+<% finalJoke.forEach((oneJoke) => { %>
+
+  <p> <%= oneJoke.value %> </p>
+
+<% }) %>

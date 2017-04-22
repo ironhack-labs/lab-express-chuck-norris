@@ -1,3 +1,8 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<% categories.forEach(function(oneCategory){ %>
+
+  <form method="get" action="/joke-by-category" >
+    <a href="/joke-by-category?cat=<%= oneCategory %> " name= "categoryValue"> <%= oneCategory %> </a>
+  </form>
+  <br>
+
+<% }) %>
