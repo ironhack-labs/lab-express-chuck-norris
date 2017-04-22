@@ -51,7 +51,6 @@ app.get('/categories', (req, res, next) => {
   client.getJokeCategories()
 
     .then( (response) => {
-      console.log(response);
 
       const data = {
         categoryList: response,
@@ -65,6 +64,7 @@ app.get('/categories', (req, res, next) => {
         client.getRandomJoke(data.category)
           .then( (response) => {
             res.render('category-view.ejs', response);
+            console.log(response);
           }).catch( (err) => {
             console.log("There was an error");
           });
