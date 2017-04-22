@@ -47,7 +47,16 @@ app.get('/category',(req, res, next)=>{
     });
 });
 
-// 
+app.get('/jokeCategory', (req, res, next)=> {
+  res.render('joke-by-category.ejs',
+    {
+      fullName : req.query.fullNameValue,
+
+      });
+    });
+
+
+//
 // app.get('/search',(req, res, next)=>{
 //   res.render('joke-by-category.ejs',
 //   {

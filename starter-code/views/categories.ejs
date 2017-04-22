@@ -5,9 +5,8 @@
     <p> Below you can find a list of highly humerous jokes </p>
     <nav>
       <ul>
-         <% category.forEach((oneCat) => { %>
-      <li>  <a href="<%= oneCat %>"> <%= oneCat %> </a> </li>
-      
+         <% category.forEach((cat) => { %>
+      <li>  <a href="<%= cat %>"> <%= cat %> </a> </li>
        <% }) %>
      </ul>
     </nav>
