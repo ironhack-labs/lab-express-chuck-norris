@@ -183,3 +183,5 @@ Add a home page route with a heading and a description of the app. Include `<a>`
 
 - [Express Routing](https://expressjs.com/en/guide/routing.html)
 - [chucknorris-io](https://www.npmjs.com/package/chucknorris-io)
+- [v0.01] Added the dependencies/packages that we worked with in class. body-parser, express-ejs-layouts, and morgan.
+- [v0.4 Final](https://i.gyazo.com/e1a7a3857a55e473df2f88cd4f83b1d6.jpg)

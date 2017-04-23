@@ -16,10 +16,10 @@ app.use(express.static('public')); //this is telling express where to find the s
 app.use(eLayouts); //telling the app not to forget to actually use the layouts framework that was called up there
 app.use(bParser.urlencoded({ extended: true })); //so these are some of the default settings of the body-parser, but in essence lets you send key value pairs from forms and other front end inputs to the backend without showing it in the url. (it's encoded)
 
-// app.use((req, res, next) => {
-//   console.log("this is the backend");
-//   next();
-// });
+app.all((req, res, next) => {
+  console.log("My Spidey Sense is tingling");
+  next();
+});
 
 //render the home page when the person visits the / root directory
 app.get('/', (req, res, next) => {
@@ -71,7 +71,7 @@ app.get('/random', (req, res, next) => {
 //lets you search for a chuck norris joke that contains a certain string
 app.get('/search', (req, res, next) => {
   res.render('search.ejs',
-  {searchJoke: "This is where the funny happens"});
+  { searchJoke: ["This is where the funny happens"] });
 });
 
 app.post('/search', (req, res, next) => {
@@ -79,15 +79,15 @@ app.post('/search', (req, res, next) => {
     console.log(`user searched for --> ${req.body.jokeSearch}`);
     console.log(results);
 
-  res.render('search-res.ejs',
+  res.render('search.ejs',
   { searchJoke: results.items });
   })
   .catch((error) => {
     console.log(`\nERROR!! search(${req.body.jokeSearch})`);
     console.log("Dude");
 
-    res.render('search-res.ejs',
-      { searchJoke2: [] });
+    res.render('search.ejs',
+      { searchJoke: [] });
   });
 });
 

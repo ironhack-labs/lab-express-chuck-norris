@@ -5,7 +5,7 @@ body {
 	width: 100%;
 	min-height: 800px;
 	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 }
 
 .navTop, .navTop a {
@@ -56,4 +56,46 @@ h1 {
 
 footer {
 	float: right;
+}
+
+.searchBlock input {
+	width: 48%;
+	height: 30px;
+	margin: 0 0 0 15%;
+
+}
+
+.searchBlock button {
+	height: 30px;
+	width: 180px;
+	line-height: 30px;
+	display: inline-block;
+	padding: 0px;
+	border: 0px;
+	border-radius: 15px;
+	background: #d98134;
+  background-image: -webkit-linear-gradient(top, #d98134, #b82b2b);
+  background-image: -moz-linear-gradient(top, #d98134, #b82b2b);
+  background-image: -ms-linear-gradient(top, #d98134, #b82b2b);
+  background-image: -o-linear-gradient(top, #d98134, #b82b2b);
+  background-image: linear-gradient(to bottom, #d98134, #b82b2b);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  text-shadow: 1px 1px 3px #666666;
+  color: #ffffff;
+  text-decoration: none
+
+}
+
+/*found this button generator online :)*/
+
+.searchBlock button:hover {
+	background: #ff0808;
+	background-image: -webkit-linear-gradient(top, #ff0808, #e6ca15);
+	background-image: -moz-linear-gradient(top, #ff0808, #e6ca15);
+	background-image: -ms-linear-gradient(top, #ff0808, #e6ca15);
+	background-image: -o-linear-gradient(top, #ff0808, #e6ca15);
+	background-image: linear-gradient(to bottom, #ff0808, #e6ca15);
+	text-decoration: none;
 }
