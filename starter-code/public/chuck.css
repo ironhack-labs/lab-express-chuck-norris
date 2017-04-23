@@ -1,17 +1,59 @@
 body {
 	background: url(./img/chuck-bg.jpg);
 	color: #fff;
-	font-size: 100px;
 	font-family: helveltica, sans;
+	width: 100%;
+	min-height: 800px;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
-a {
+.navTop, .navTop a {
+	text-align: center;
 	margin-bottom: 90px;
-	color: #fff;
+	padding: 20px;
 	font-size: 50px;
+	color: #fff;
 	text-decoration: none;
+}
+
+.catTable, .catTable a {
+	font-size: 25px;
+	color: #fff;
+	width: 100%;
+	display: inline;
+	margin-right: 15px;
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none;
+
 }
 
 a:hover {
 	color: #ED1C24;
+}
+
+
+h1 {
+	font-size: 70px;
+	text-align: center;
+}
+
+.jokeBlock {
+	background: rgba(0, 0, 0, 0.7);
+	font-size: 25px;
+	width: 70%;
+	padding: 20px;
+	min-height: 250px;
+	margin: 0 15%;
+	border-radius: 15px;
+}
+
+.jokeBlock img {
+	width: 60%;
+	margin: 0 20%;
+}
+
+footer {
+	float: right;
 }
