@@ -1,3 +1,25 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+
+<h1>Search Chuck Norris Jokes By Category</h1>
+<!--set an index so that we could iterate with this number, and create a new line string  -->
+<% let i = 0, closeDiv = "/div", newDiv = "div";  %>
+<!--loops through each category available in the Chuck Norris API  -->
+<div class="catTable">
+  <div>
+    <% cat.forEach((category) => { %>
+
+    <span><a href="./categories?cat=<%= cat[i] %>"><%= cat[i].toUpperCase() %></a></span>
+    <!--every 5 categories printed out go to the next line so that we could just make a category block
+        the block doesn't look good because it needs a better layout-->
+    <% if ( i % 5 == 0 && i >= 5) { %>
+      <<%= closeDiv %>>
+      <<%= newDiv %>>
+    <% } %>
+    <% i++ %>
+    <% }) %>
+</div>
+
+<div class="jokeBlock">
+  <p>
+    <%= catJoke %>
+  </p>
+</div>

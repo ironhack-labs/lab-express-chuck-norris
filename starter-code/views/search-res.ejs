@@ -1,0 +1,18 @@
+<h1> Search for Chuck Norris Jokes </h1>
+
+<div class ="searchBlock">
+  <form method="post" action="/search">
+    <label for="joke-search"></label>
+    <input id="joke-search" type="search" name="jokeSearch">
+    <br>
+
+    <button> Search </button>
+
+  </form>
+</div>
+
+<div class="jokeBlock">
+  <p>
+    <%= searchJoke %>
+  </p>
+</div>
