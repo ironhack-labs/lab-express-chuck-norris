@@ -64,7 +64,6 @@ app.get('/categories', (req, res, next) => {
         client.getRandomJoke(data.category)
           .then( (response) => {
             res.render('category-view.ejs', response);
-            console.log(response);
           }).catch( (err) => {
             console.log("There was an error");
           });
@@ -93,6 +92,7 @@ app.post('/search', (req, res, next) => {
       res.render('search-results.ejs', response);
     }
   }).catch( (err) => {
+    console.log(err);
     res.render('no-results.ejs');
   });
 });

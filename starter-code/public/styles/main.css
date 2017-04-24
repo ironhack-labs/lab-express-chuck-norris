@@ -37,6 +37,7 @@ footer {
   box-shadow: 1px 1px 10px lightgrey;
   border-radius: 8px;
   padding: 50px 10px;
+  word-wrap: break-word;
 }
 
 .categories {
