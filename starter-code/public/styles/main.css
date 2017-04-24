@@ -1,3 +1,8 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: arial;
   text-align: center;
@@ -20,11 +25,8 @@ a:active {
 }
 
 footer {
-  margin-bottom: 20px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  margin: 25px auto;
+
 }
 
 .joke {
