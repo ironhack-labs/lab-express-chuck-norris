@@ -1,0 +1,13 @@
+  <body>
+    <h1>Categories</h1>
+    <div class="panel panel-default">
+    <div class="panel-body">
+      <ul>
+        <% categories.forEach((oneCategory) => { %>
+          <li> <a href="http://localhost:3000/categories?cat=<%= oneCategory %>"><%= oneCategory %></a></li>
+        <% }); %>
+      </ul>    
+    </div>
+    <div class="panel-footer"><p> Click a category to see a joke from it. </p></div>
+  </div>  
+  </body>

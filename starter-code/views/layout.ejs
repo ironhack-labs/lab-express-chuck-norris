@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Chuck Norris Facts </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+            #navcontainer ul { margin: 0; padding: 0; list-style-type: none; }
+            #navcontainer ul li { display: inline; padding: 10px; }
+            #navcontainer ul li a { text-decoration: none; text-transform: uppercase; }
+        </style>
+    </head>
+    <body>
+    <header>
+      <h1> Chuck Norris Facts </h1>
+      <nav id="navcontainer">
+        <ul>
+          <li> <a href="/"> Home </a> </li>
+          <li> <a href="/random"> Random Joke </a> </li>
+          <li> <a href="/categories"> Categories </a> </li>
+          <li> <a href="/search"> Search </a> </li>
+        </ul>
+      </nav>
+    </header>
+    <%- body -%>
+    <footer>
+      Made with &hearts; at Ironhack.
+    </footer>
+    </body>
+</html>
