@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ironhack-labs/lab-express-chuck-norris#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "chucknorris": "0.0.0",
     "chucknorris-io": "^1.0.4",
     "ejs": "^2.5.6",

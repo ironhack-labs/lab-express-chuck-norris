@@ -2,17 +2,22 @@ const express = require('express');//WHAT?
 const expressLayouts = require('express-ejs-layouts');
 const Chuck  = require('chucknorris-io');
 const client = new Chuck();
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
 const app = express();
 
 //Setting up app config(A)
 app.set('view engine', 'ejs');
-app.set('layout', 'layouts/main-layout.ejs');
+app.set('views', './views');
+app.set('layout', './layouts/main-layout.ejs');
 
 //Letting app using stuff(B)
 
+app.use(morgan('dev'));
 app.use(express.static('public'));
 app.use(expressLayouts);
+app.use(bodyParser.urlencoded( {extended: true}));
 
 //Making pages(C)
 app.get('/', (req, res, next) => {
@@ -20,22 +25,43 @@ app.get('/', (req, res, next) => {
 });
 
 app.get('/random', (req, res, next) => {
-  client.getRandomJoke().then((fact) => {
-    console.log("I see this: "+ fact);
-    thisJoke = joke.value;
-    res.render('chuck-random.ejs', {
-      joke: quote
-    });
+  client.getRandomJoke()
+  .then((randomOne) => {
+    console.log(randomOne);
+    res.render('chuck-random.ejs',
+  {randomJoke: randomOne.value});
+
   }).catch((err) => {
-    console.log('Your mind could not understand complexity of Chuck humor');
+    console.log('smth went wrong');
   });
 });
 
+//Categories
 app.get('/categories', (req, res, next) => {
-  res.render('joke-by-category.ejs');
-}); //Categories
-
+  if (req.query.cat === undefined) {
+    client.getJokeCategories()
+    .then((categoryList)=>  {
+      console.log(categoryList);
+      res.render('categories.ejs',
+      {categories: categoryList});
+    });
+  } else {
+    client.getRandomJoke(req.query.cat)
+    .then((joke) => {
+      console.log(joke);
+      
+      res.render(
+        'joke-by-category.ejs',
+        { joke: joke.value,
+          categories: req.query.cat
+        }
+      );
+    });
+  }
+});
+//
 app.get('/search', (req, res, next) => {
+  console.log("searching");
   res.render('search-view.ejs');
 }); //Search
 
