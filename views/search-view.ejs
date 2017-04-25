@@ -1,0 +1,11 @@
+<form action="/search" method="post">
+  <label for="search-input">Find by keyword</label>
+  <input id="search-input" type="text" name="searchKeyword">
+  <input type="submit" value="Find">
+</form>
+
+<div>
+   <% searchResults.forEach((joke) => { %>
+     <p><%= joke.value %></p>
+   <% }) %>
+ </div>
