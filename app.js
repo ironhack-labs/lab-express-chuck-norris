@@ -49,7 +49,7 @@ app.get('/categories', (req, res, next) => {
     client.getRandomJoke(req.query.cat)
     .then((joke) => {
       console.log(joke);
-      
+
       res.render(
         'joke-by-category.ejs',
         { joke: joke.value,
@@ -59,10 +59,24 @@ app.get('/categories', (req, res, next) => {
     });
   }
 });
-//
+
+//Search
 app.get('/search', (req, res, next) => {
   console.log("searching");
-  res.render('search-view.ejs');
-}); //Search
+  res.render('search-view.ejs',
+  {searchResults: []});
+});
+
+app.post('/search', (req, res, next) => {
+  console.log(req.body.searchKeyword);
+  client.search(req.body.searchKeyword).then((results) => {
+    console.log(`searching for --> ${req.body.searchKeyword}`);
+    res.render('search-view.ejs',
+     {searchResults: results.items});
+    console.log(results.items);
+  }).catch(function (err) {
+    // handle error
+});
+});
 
 app.listen(3000);

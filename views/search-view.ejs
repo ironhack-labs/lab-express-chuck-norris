@@ -1,15 +1,11 @@
-<!-- // Free text search
-client.search(searchTerm).then(function (response) {
-    // to stuff here
-}).catch(function (err) {
-    // handle error
-}); -->
-
-
 <form action="/search" method="post">
   <label for="search-input">Find by keyword</label>
   <input id="search-input" type="text" name="searchKeyword">
-
-
   <input type="submit" value="Find">
 </form>
+
+<div>
+   <% searchResults.forEach((joke) => { %>
+     <p><%= joke.value %></p>
+   <% }) %>
+ </div>
