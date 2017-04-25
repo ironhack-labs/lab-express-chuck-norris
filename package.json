@@ -1,0 +1,36 @@
+{
+  "name": "lab-express-chuck-norris",
+  "version": "1.0.0",
+  "description": "applying nodejs express morgan api chuck norris ",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ogm710811/lab-express-chuck-norris.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "ejs",
+    "morgan",
+    "api",
+    "chuck",
+    "norris"
+  ],
+  "author": "Orestes Garcia ogm710811@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ogm710811/lab-express-chuck-norris/issues"
+  },
+  "homepage": "https://github.com/ogm710811/lab-express-chuck-norris#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "chucknorris-io": "^1.0.4",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-ejs-layouts": "^2.3.0",
+    "morgan": "^1.8.1"
+  }
+}

@@ -1,0 +1,11 @@
+<h2>Search Results for "<%= keyword %>"</h2>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <ul>
+        <% results.forEach((oneJoke) => { %>
+            <li> <%= oneJoke.value %> </li>
+        <% }) %>
+      </ul>    
+    </div>
+    <div class="panel-footer"><a href="/search">Click for Another Search</a></div>
+  </div> 
