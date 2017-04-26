@@ -1,0 +1,13 @@
+<!-- <form action="/save" method="get"> -->
+<form action="/search" method="post">
+<!-- <form action="/saved"> -->
+  <label for="name">category:</label>
+  <input type="text" name="category" placeholder="Type a category">
+  <input type="submit" value="Save category">
+</form>
+
+<% if(jokesCategorySearched!==undefined){%>
+  <% jokesCategorySearched.forEach((item)=>{%>
+    <h4><%=item.value%></h4>
+  <%})%>
+<%}%>

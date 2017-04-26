@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Chuck Norris Joke Department</title>
+    <link rel="stylesheet" type="css/text" href="stylesheets/style.css">
+  </head>
   <body>
-    <h1>Categories</h1>
+    <ul>
+    <% jokeCategories.forEach((category)=>{ %>
+        <li><a href=<%="/categories?cat="+category.toString()%>><%=category%></a></li>
+    <% }) %>
+    </ul>
   </body>
+</html>
