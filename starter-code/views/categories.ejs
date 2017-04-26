@@ -1,3 +1,6 @@
   <body>
-    <h1>Categories</h1>
+    <h1><%= current %></h1>
+    <% array.forEach((category) => { %>
+      <a href="/categories?cat=<%= category %>"><%= category %></a>
+    <% }) %>
   </body>
