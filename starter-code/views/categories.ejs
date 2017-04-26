@@ -1,3 +1,6 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+
+<h1>Categories</h1>
+
+<% categories.forEach((categ)=>{ %>
+  <a href="/categories?cat=<%=categ%>" ><%=categ%></a>
+<%}) %>
