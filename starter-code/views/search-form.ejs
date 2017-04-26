@@ -1,0 +1,11 @@
+
+
+
+<form class="" action="/search" method="post">
+<input type="text" name="searchWord" value="search term">
+<input type="submit" name="name" value="submit">
+</form>
+
+<%if (result) {result.forEach((val)=>{ %>
+<p><%=val%></p>
+<%})}%>
