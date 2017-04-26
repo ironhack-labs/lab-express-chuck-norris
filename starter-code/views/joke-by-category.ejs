@@ -5,16 +5,7 @@
     <link rel="stylesheet" type="css/text" href="stylesheets/style.css">
   </head>
   <body>
-    <ul>
-    <% jokeCategories.forEach((category)=>{ %>
-        <li><a href=<%="/categories?cat="+category.toString()%>><%=category%></a></li>
-    <% }) %>
-
-    <% if(jokeCategorySelected!==undefined){%>
-      <h4><%=jokeCategorySelected%></h4>
-    <%}%>
-
-
-    </ul>
+    <h4><%=jokeSelected%></h4>
+    <h4><%=jokeCategorySelected%></h4>
   </body>
 </html>
