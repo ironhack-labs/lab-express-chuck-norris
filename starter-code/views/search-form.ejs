@@ -1,0 +1,9 @@
+<form action="/search" method="post">
+  <label for="category">category</label>
+  <input type="text" name="category" placeholder="select a joke category">
+  <input type="submit" value="Save category">
+</form>
+
+<% if(result)  {result.forEach((val)=> { %>
+   <p><%=val%></p>
+<% }) }%>
