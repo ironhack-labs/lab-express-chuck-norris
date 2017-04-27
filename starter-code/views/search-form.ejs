@@ -1,0 +1,11 @@
+<body>
+  <form  action="/search" method="post">
+    <label for="search">Search</label>
+    <input type="text" name="searchWord" placeholder="Type a Word" >
+    <input type="submit" value="Search">
+  </form>
+</body>
+
+<% if(result)  {result.forEach((val)=> { %>
+   <p><%=val%></p>
+<% }) }%>
