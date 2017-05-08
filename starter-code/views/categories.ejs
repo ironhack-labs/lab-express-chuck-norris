@@ -1,3 +1,13 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+  <h2> Categories </h2>
+
+<p> Joke categories. </p>
+
+<ul>
+  <% categories.forEach((oneCategory) => { %>
+    <li>
+      <a href="/categories?cat=<%= oneCategory %>">
+        <%= oneCategory %>
+      </a>
+    </li>
+  <% }) %>
+</ul>
