@@ -1,3 +1,9 @@
   <body>
-    <h1>Categories</h1>
-  </body>
+    <h1><%=title%> </h1>
+
+    <% cate.forEach((cate) => { %>
+      <li><a href=/categories?cat=<%=cate %>><%= cate %></a></li>
+
+    <% }); %>
+      <%=random%>
+    </body>
