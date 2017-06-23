@@ -1,0 +1,17 @@
+<!--Chooses which of the views to show, depending on the viewStatus-->
+<% if (viewStatus === "search") { %>
+
+    <form action="search" method="post">
+        <label for="search-keyword">Search keyword:</label>
+        <input id="search-keyword" type="text" name="keyword">
+        <input type="submit" value="Search">
+    </form>
+
+<% } else if (viewStatus === "showJokes") { %>
+    <ul>
+        <% jokes.forEach(joke => { %>
+            <li><%= joke.value%></li>
+        <% }) %>
+    </ul>
+
+<% } %> 

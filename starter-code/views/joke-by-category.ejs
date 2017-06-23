@@ -1,1 +1,17 @@
+<!--Chooses which of the views to show, depending on the viewStatus-->
+<% if (viewStatus === "getJoke") { %>
+    <p>
+        <%= joke %>
+    </p>
+<% } else if (viewStatus === "getCategories") {%>
 
+    <ul>
+        <% categories.forEach(category => { %>
+            <li>
+                <a href="../categories?cat=<%= category %>">
+                    <%= category %>
+                </a>
+            </li>
+            <% }) %>
+    </ul>
+<% } %>
