@@ -1,0 +1,14 @@
+<form action="/search" method="POST">
+
+  <label for="search"></label>
+  <input id="search" type="search" name="search">
+
+  <button type="submit">
+    search
+  </button>
+  <ol class=items>
+    <% items.forEach((joke) => { %>
+        <li class=“joke-box”><%= joke.value %></li>
+      <% }) %>
+  </ol>
+</form>
