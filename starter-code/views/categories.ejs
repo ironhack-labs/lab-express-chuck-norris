@@ -1,3 +1,19 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<body>
+  <h1>Categories</h1>
+
+  <ul>
+
+    <%  chuckCat.forEach((arrayItem) => { %>
+
+      <li>
+        <a href='/categories?cat=<%=arrayItem%>' id="dev-category" name="devCategory">
+          <%=  arrayItem %>
+
+        </a>
+      </li>
+
+      <%       }); %>
+  </ul>
+
+
+</body>
