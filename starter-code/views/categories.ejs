@@ -1,3 +1,12 @@
   <body>
-    <h1>Categories</h1>
+    <h2>Categories</h2>
+
+      <nav>
+        <%catArr.forEach((element)=>{%>
+          <li><a href="?cat=<%=element%>"><%=element%></a>
+          </li>
+        <%});%>
+      </nav>
+
+
   </body>

@@ -1,0 +1,23 @@
+body{
+  background-image: url("http://www.freeinfosociety.com/media/images/1602.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: contain;
+  color: white;
+}
+h1,h2,label{
+  background-color: black;
+  color: yellow;
+}
+a{
+  font-size: 1.6em;
+  color: deeppink;
+  background-color: white;
+}
+p{
+  background-color: black;
+}
+
+li{
+  background-color: black;
+}
