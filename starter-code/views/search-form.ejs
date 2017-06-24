@@ -1,0 +1,12 @@
+<h2> Search </h2>
+<p>
+  <% result.forEach((joke) => { %>
+    <%= joke.value %> <br>
+<%  }); %>
+</p>
+<form method="post" action="/search">
+  <label for="search-field">
+  <input type="text" id="search-field" name="searchField">
+  <button> Submit </button>
+
+</form>
