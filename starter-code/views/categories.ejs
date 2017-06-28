@@ -1,3 +1,11 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<body>
+  <h2> Categories </h2>
+
+  <ul>
+    <% categoriesArray.forEach((category) => { %>
+      <li class="categorylist">
+        <a id="dev-category" name="devCategory" href="/jokeCategoryPage?cat=<%= category %>"> <%= category %> </a>
+      </li>
+    <% }); %>
+  </ul>
+</body>
