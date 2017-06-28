@@ -14,8 +14,9 @@ app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 app.use(expressLayouts);
+
+//ROUTES
 
 app.get('/', (req, res, next) => {
   res.render('home-view.ejs');
@@ -52,12 +53,14 @@ app.get('/jokeCategoryPage', (req, res, next) => {
   });
 });
 
+
+//Search a joke by keyword
 app.get('/search', (req, res, next) => {
   res.render('search-view.ejs');
 });
 
 app.post('/check-results', (req, res, next) => {
-  // request.query refers to the data in the "query string" (?food=pizz&price=88)
+  // req.query refers to the data in the "query string" (?food=pizz&price=88)
   const theSearch = req.body.searchTerm;
     client.search(theSearch)
     .then( (results) => {
