@@ -1,0 +1,11 @@
+<!-- Simple form which will send a GET request -->
+<form action="http://localhost:3000/search" method="POST">
+  <label for="search-input">Search:</label>
+  <input id="search-input" type="text" name="search">
+
+  <input type="submit" value="Die laughing!">
+</form>
+
+<% if (access) { %>
+    <%= joke %>
+<% } %>
