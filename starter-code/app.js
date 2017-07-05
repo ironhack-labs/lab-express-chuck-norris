@@ -10,10 +10,6 @@ app.get("/", (req, res, next) => {
     res.render("index");
 });
 
-app.listen(3001, () => {
-    console.log("listening!!!");
-});
-
 app.get('/categories', (request, response, next) => {
   console.log(request);
   response.render('categories');
@@ -50,4 +46,9 @@ app.get('/search', (request, response, next) => {
       // handle error
     });
    
+});
+
+
+app.listen(3001, () => {
+    console.log("listening!!!");
 });
