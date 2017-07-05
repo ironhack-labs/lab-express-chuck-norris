@@ -1,3 +1,9 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<%- include('partials/return-link.ejs') %>
+<h3>Categories</h3>
+<ul>
+  <% categories.forEach( (category) => {%>
+    <li>
+      <a href="?cat=<%= category %>" ><%= category %> </a>
+    </li>
+  <% }) %>
+</ul>

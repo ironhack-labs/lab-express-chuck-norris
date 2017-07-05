@@ -1,0 +1,14 @@
+<%- include('partials/return-link.ejs') %>
+<h3>Joke's search engine</h3>
+<form class="" action="/search" method="post">
+  <label for="keyword">Keyword:</label>
+  <input type="text" name="keyword" id="keyword" value="">
+  <button type="submit" name="button">Search</button>
+</form>
+<% if (typeof response !== 'undefined') { %>
+  <ul>
+    <% response.items.forEach((joke) => { %>
+      <li> <%= joke.value %></li>
+    <% }) %>
+  </ul>
+<% } %>
