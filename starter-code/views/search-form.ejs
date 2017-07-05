@@ -1,0 +1,12 @@
+<form action="http://localhost:3000/search" method="POST">
+  <label for="key-word-input">Keyword:</label>
+  <input id="key-word-input" type="text" name="keyword">
+  <input type="submit" value="Get a Joke!">
+</form>
+
+
+<ul>
+  <% jokes.forEach((joke) => { %>
+    <li><%= joke.value %></li>
+  <% }) %>
+</ul>
