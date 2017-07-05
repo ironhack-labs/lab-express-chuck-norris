@@ -1,7 +1,14 @@
 <body>
-  <form action="/search" method="post">
+  <form action="/search" method="post" enctype="application/x-www-form-urlencoded">
     <label>keyword</label>
     <input type="text" name="joke"/>
     <button type="submit">send</button>
   </form>
+  <ul>
+  <% if(jokes) {%>
+    <% jokes.forEach((joke) => { %>
+      <li> <%= joke.value%> </li>
+    <% }) %>
+  <% }%>
+<ul>
 </body>

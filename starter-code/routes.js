@@ -1,4 +1,4 @@
-module.exports = (app) => {
+module.exports = (app, client) => {
   app.get('/random', (req, res) => {
     let joke
     client.getRandomJoke()
@@ -35,11 +35,20 @@ module.exports = (app) => {
   })
 
   app.get('/search', (req, res) => {
-    res.render('search-form.ejs')
+    res.render('search-form.ejs', {jokes: false})
   })
 
   app.post('/search', (req, res) => {
-    console.log(req)
+    let {joke} = req.body
+
+    client.search(joke)
+      .then((response) => {
+        console.log(response)
+        jokes = response.items
+        res.render('search-form.ejs', {jokes: jokes})
+      }).catch((err) =>{
+
+      })
 
   })
 
