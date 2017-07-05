@@ -14,14 +14,21 @@ app.listen(3001, () => {
     console.log("listening!!!");
 });
 
-client.getJokeCategories()
+app.get('/categories', (request, response, next) => {
+  console.log(request);
+  response.render('categories');
+  client.getJokeCategories()
   .then((response)=>  {
     // use the response here
   })
   .catch((err)=> {
     // handle error
   });
+})
 
+app.get('/random', (request, response, next) => {
+  console.log(request);
+  response.render('randomJoke');
 // Retrieve a random chuck joke
 client.getRandomJoke('dev')
   .then((response) => {
@@ -30,9 +37,17 @@ client.getRandomJoke('dev')
     // handle error
   });
 
-  client.search(searchTerm)
-  .then(function (response) {
-    // to stuff here
-  }).catch(function (err) {
-    // handle error
-  });
+});
+
+app.get('/search', (request, response, next) => {
+    console.log(request);
+    
+    response.render('search-form');
+    client.search(searchTerm)
+     .then(function (response) {
+    console.log("LOL??");
+    }).catch(function (err) {
+      // handle error
+    });
+   
+});
