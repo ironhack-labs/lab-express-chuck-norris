@@ -54,6 +54,22 @@ app.get('/categories', (req, res) => {
       });
   }
 });
+app.get('/search-form',(request,response,next)=>{
+   response.render("search-form");
+ });
+
+ app.post('/search', (req, res) => {
+   client.search(req.body.inputkeyword)
+   .then(function (response) {
+     // to stuff here
+     res.render('search',{response});
+     console.log("body", request.body);
+  }).catch(function (err) {
+     // handle error
+     console.log("error");
+   });
+ });
+
 
 
 app.listen(3000, () => {
