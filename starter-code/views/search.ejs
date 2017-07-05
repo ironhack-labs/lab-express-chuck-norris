@@ -1,0 +1,11 @@
+<form action="http://localhost:3000/search" method="post">
+  <input type="text" name="category" value="">
+  <input type="submit" name="" value="Request joke">
+</form>
+
+<p>Search result count:</p>
+<ul>
+  <% response.forEach( (joke) => { %>
+    <li> <%= joke.value %> </li>
+    <% }) %>
+</ul>

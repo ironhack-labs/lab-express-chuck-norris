@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+}
+
+nav {
+  background-color: black;
+  height: 40px;
+}
+
+nav li {
+  text-decoration: none;
+  display: inline;
+  padding: 20px;
+}
+
+nav li a {
+  color: white;
+  text-decoration: none;
+}

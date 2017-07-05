@@ -1,3 +1,6 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+  <h1>Categories</h1>
+    <ul>
+      <% response.forEach( (category) => { %>
+        <li><a href='categories?cat=<%= category %>'> <%= category %></a></li>
+        <% }) %>
+    </ul>
