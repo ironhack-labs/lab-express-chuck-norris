@@ -13,3 +13,26 @@ app.get("/", (req, res, next) => {
 app.listen(3001, () => {
     console.log("listening!!!");
 });
+
+client.getJokeCategories()
+  .then((response)=>  {
+    // use the response here
+  })
+  .catch((err)=> {
+    // handle error
+  });
+
+// Retrieve a random chuck joke
+client.getRandomJoke('dev')
+  .then((response) => {
+    // use the response here
+  }).catch((err) => {
+    // handle error
+  });
+
+  client.search(searchTerm)
+  .then(function (response) {
+    // to stuff here
+  }).catch(function (err) {
+    // handle error
+  });
