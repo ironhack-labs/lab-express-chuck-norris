@@ -1,3 +1,8 @@
   <body>
     <h1>Categories</h1>
+    <ul>
+      <% for (i=0; i<categories.length; i++) { %>
+     <li><a  name="cat"href="?cat=<%-categories[i] %>"><%-  categories[i] %></a></li>
+<% } %>
+    </ul>
   </body>
