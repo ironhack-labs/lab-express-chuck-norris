@@ -52,19 +52,23 @@ app.get('/categories', (req, res) => {
 
 // RUTE 3: joke by keyword
 app.get('/search', (req, res) => {
-  res.render('search-form');
+  res.render('search-form',{joke:undefined});
 });
 
-// RUTE 3: joke by keyword
-app.post('/user-data', (req, res) => {
+// RUTE 4: joke by keyword
+app.post('/search', (req, res) => {
   console.log(`The request is: ${req.body.userInput}`);
+  let obj = {
+    joke: undefined
+  };
   client.search(req.body.userInput)
   .then(function (response) {
     // to stuff here
+    obj.joke = response;
     console.log(response);
-    // res.send(response);
+    res.render('search-form', obj);
+
   }).catch(function (err) {
-    // handle error
     console.log(`This error is: ${err}`);
   });
 });
