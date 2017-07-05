@@ -5,10 +5,10 @@
     <title></title>
   </head>
   <body>
-    <h1>Categories</h1>
+    <h1>Search Jokes</h1>
     <ul>
-      <% for (i=0; i<cat.length; i++) { %>
-        <li> <a href="/categories?cat=<%= cat[i] %>"> <%= cat[i] %> </a> </li>
+      <% for (i=0; i<jokeSearch.length; i++) { %>
+        <li> <%= jokeSearch[i].value %> </li>
         <% } %>
       </ul>
     </body>
