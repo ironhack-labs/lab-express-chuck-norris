@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Chuck Norris jokes</title>
+</head>
+
+<body>
+  <form action="/search" method="post">
+    <input type="text" name="Search">
+    <input type="submit" value="Search">
+  </form>
+  <p>
+    <% if (joke != undefined) {%>
+      <%- joke.items.map((item)=>item.value).join("<br>") %>
+        <% } %>
+
+  </p>
+</body>
+
+</html>
