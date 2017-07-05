@@ -1,0 +1,9 @@
+  <body>
+    <h1>Categories</h1>
+
+    <ul>
+      {% for link in array %}
+        <li><a href="?cat={{link}}">{{link}}</a></li>
+      {% endfor %}
+    </ul>
+  </body>
