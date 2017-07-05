@@ -1,3 +1,10 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<h1>Categories</h1>
+
+
+
+    <% jokeCat.forEach((category) => { %>
+
+      <a href="http://localhost:3000/categories/<%=category%>"><p><%=category%></p></a>
+        <!-- <li><input type="submit" name="cat" value= <%=category%> ></li> -->
+
+    <% }); %>
