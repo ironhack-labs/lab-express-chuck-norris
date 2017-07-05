@@ -1,3 +1,6 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<h1>Categories</h1>
+<ul>Categories<ul>
+  <% for(let i = 0;i<category.length;i++){ %>
+  <li><a href="http://localhost:3000/category?cat=<%= category[i]%>"><%=category[i]%></a></li>
+
+  <% } %>
