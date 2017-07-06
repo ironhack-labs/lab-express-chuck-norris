@@ -3,6 +3,7 @@ const app = express();
 const Chuck  = require('chucknorris-io');
 const client = new Chuck();
 
+app.set('layout', 'layout/index');
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
@@ -10,25 +11,26 @@ app.get("/", (req, res, next) => {
     res.render("index");
 });
 
-app.get('/categories', (request, response, next) => {
+app.get('/categories', (request, res, next) => {
   console.log(request);
-  response.render('categories');
-  client.getJokeCategories()
-  .then((response)=>  {
-    // use the response here
+  
+  client.getJokeCategories().then((response)=>  {
+    let categories = response;
+    res.render('categories', {categories});
   })
   .catch((err)=> {
     // handle error
   });
 })
 
-app.get('/random', (request, response, next) => {
+app.get('/random', (request, res, next) => {
   console.log(request);
-  response.render('randomJoke');
+  
 // Retrieve a random chuck joke
-client.getRandomJoke('dev')
-  .then((response) => {
-    // use the response here
+client.getRandomJoke().then((response) => {
+    console.log(response);
+    let quote=response.value;
+    res.render('randomJoke', {quote});
   }).catch((err) => {
     // handle error
   });
