@@ -1,6 +1,9 @@
+
 <form class="" action="/search" method="post">
   <label for="keyword">Keyword</label>
   <input type="text" name="key" value="">
 
   <input type="submit" name="search joke" value="search">
 </form>
+
+<p><%- items ? items.map(e => e.value).join("<br>") : "" %></p>
