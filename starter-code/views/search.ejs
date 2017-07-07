@@ -1,0 +1,7 @@
+<h2>Search term: <%= searchTerm %></h2>
+<ul>
+  <% response.items.forEach((joke)=>{ %>
+    <li><h4><%= joke.value %></h4></li>
+
+  <% }); %>
+</ul>
