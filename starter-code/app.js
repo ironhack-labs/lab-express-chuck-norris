@@ -34,7 +34,7 @@ app.get('/random',(req,response,next)=>{
   // Retrieve a random chuck joke
   client.getRandomJoke()
     .then((res) => {
-      let joke = `${JSON.stringify(res.value)}`;
+      let joke = res.value;
       response.render('random',{joke});
     }).catch((err) => {
       response.send(`Error finding our joke`);
@@ -62,7 +62,7 @@ app.get('/categoriess',(req,res,next)=>{
    })
    .catch((err) => {
      res.send(`Error finding all joke categories`);
-    })
+    });
  });
 
 
@@ -71,13 +71,17 @@ app.get('/search',(req,res,next)=>{
 });
 
 app.post('/search',(req,res,next) => {
-  client.search(searchTerm)
+  let word = req.body.searchedWord;
+  console.log(`********* ${word} ********`);
+  client.search(word)
   .then(function (response) {
-    // to stuff here
+    let wordu = word;
+    let arrayJokes = response.items;
+    res.render('search', {arrayJokes, wordu})
   }).catch(function (err) {
-    // handle error
+    console.log("You are Error");
+    res.redirect('/');
   });
-
 });
 
 
