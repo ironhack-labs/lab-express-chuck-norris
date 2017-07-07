@@ -84,21 +84,9 @@ app.post('/search',(req,res,next) => {
   });
 });
 
-
-
-
 app.listen(3001, () => {
   console.log('Listening on ---> port 3001!');
 });
 
-
-
- 
-// // Retrieve a list of available joke categories 
-// client.getJokeCategories().then(function (response) {
-//     // to stuff here 
-// }).catch(function (err) {
-//     // handle error 
-// });
  
 
