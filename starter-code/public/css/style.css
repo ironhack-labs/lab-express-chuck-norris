@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  min-height: 100%;
+}
+
+body {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+header, footer {
+  background: black;
+  padding: 1em 2em;
+  color: white;
+  height: 10vh;
+}
+
+main {
+  padding: 1em;
+  height: 80vh;
+}
