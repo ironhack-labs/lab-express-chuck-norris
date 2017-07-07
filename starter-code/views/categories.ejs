@@ -1,3 +1,10 @@
   <body>
     <h1>Categories</h1>
+
+<ul>  
+   <% allCategories.forEach( (category) => { %>
+       <li> <a href='/categoriess?cat=<%= category %>'><%= category %> </a> </li>
+     <% }) %>
+</ul>
+
   </body>
