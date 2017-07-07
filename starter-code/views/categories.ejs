@@ -1,7 +1,11 @@
-<p>categories</p>
-<h1>hello <%=categories%> </h1>
+<h1>CATEGORIES</h1>
 <ul>
-  <% categories.forEach( (categories) => { %>
-    <li><%= categories %></li>
-  <% }) %>
+  <!-- Fill dynamically a list adding html content -->
+  <% list.forEach(category => { %>
+    <li>
+      <a href="/categories/<%=category%>">
+        <%=category %>
+      </a>
+    </li>
+    <% }) %>
 </ul>

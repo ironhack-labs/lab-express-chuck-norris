@@ -12,41 +12,67 @@ app.set('views', __dirname + '/views'); //engine de js
 app.set('view engine', 'ejs'); // compilar ejs's
 
 
+app.get('/', (req, res, next) => {
+  res.render('index');
+  /*COMO PONGO UNA PAGINA PRINCIPAL DIRECTAMENTE SIN LLAMAR A INDEX*/
+  console.log("GET /");
+});
+
+/**
+ * Fetch a random Chuck Norris joke
+ */
 app.get('/random', (req, res, next) => {
-  // Retrieve a random chuck joke
   client.getRandomJoke()
     .then((response) => {
-      res.send(`<p>${JSON.stringify(response.value)}</p>`);
-      console.log("AAAAAAAAAAAAAAAAAA");
+      let data = {
+        randomJoke: response.value
+      };
+      // pass a local variable to the view
+      res.render("random", {
+        "joke": data.randomJoke //joke is the attribute to fill the view 'random'
+      });
     }).catch((err) => {
       res.send(`ERROR GETTING RANDOM JOKE`);
     });
 });
-app.get('/categories',(req, res, next)=> {
-   client.getJokeCategories()
-   .then((response)=>  {
-    let categories = response;
-    res.render('categories',categories);
-  })
-   .catch((err)=> {
-     res.send(`ERROR GETTING CATEGORIES JOKE`);
-   });
- });
 
-// app.get('/categories', (req, res, next) => {
-//   client.getJokeCategories()
-//     .then((response) => {
-//       // if a callback is specified, the rendered HTML string has to be sent explicitly
-//       // res.render('categories', function(err, response) {
-//       //   res.send(response);
-//       let cat = response;
-//       response.render('views/categories',{cat});
-//       });
-//     })
-//     .catch((err) => {
-//       res.send(`ERROR GETTING CATEGORIES`);
-//     });
-// });
+/**
+ * Fetch a Chuck Norris categories list
+ */
+app.get("/categories", (req, res, next) => {
+  client.getJokeCategories()
+    .then((response) => {
+      let data = {
+        listCategories: response
+      };
+      res.render("categories", {
+        "list": data.listCategories //list is the attribute to fill the view 'categories'
+      });
+    })
+    .catch((err) => {
+      res.send(`ERROR GETTING CATEGORIES`);
+    });
+});
+
+
+/**
+ * Route parameters:
+ * Route path: /users/:userId/books/:bookId
+ * Request URL: http://localhost:3000/users/34/books/8989
+ * req.params: { "userId": "34", "bookId": "8989" }
+ */
+app.get("/categories/:category", (req, res, next) => {
+  client.getRandomJoke(req.params.category)
+    .then((response) => {
+      let data = {
+        category: req.params.category,
+        joke: response.value
+      };
+      res.render("joke-by-category", {"category": data.category, "joke": data.joke});
+    }).catch((err) => {
+      res.send(`ERROR GETTING CATEGORY`);
+    });
+});
 
 
 app.get('/search', (req, res, next) => {
