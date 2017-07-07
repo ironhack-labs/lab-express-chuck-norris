@@ -1,3 +1,6 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<h2>Categories</h2>
+    <ul><% response.forEach((category)=>{ %>
+        <li><a href="http://localhost:3000/joke-by-category?cat=<%= category %>"><%= category %></a></li>
+
+      <% }); %>
+    </ul>
