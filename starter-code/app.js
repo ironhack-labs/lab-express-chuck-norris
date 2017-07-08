@@ -65,13 +65,15 @@ app.get('/joke-by-category/', (req, res, next) => {
     myChuck.getRandomJoke(category).then((response) => {
         let joke =response;
         console.log(joke)
-        res.render('joke-by-category', {joke:joke});
+        res.render('joke-by-category', {joke});
     }).catch((err) => {
     // handle error
     });
   }else{
-    const goToCategories = '<p>Go to select a <a href="/categories">category</a></p>';
-    res.render('joke-by-category', {tag:goToCategories});
+    const joke = {
+        value: '<p>Go to select a <a href="/categories">category</a></p>'
+    };
+    res.render('joke-by-category', {joke});
 
 }
 });
