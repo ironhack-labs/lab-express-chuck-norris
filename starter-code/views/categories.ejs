@@ -1,3 +1,11 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<h1>CATEGORIES</h1>
+<ul>
+  <!-- Fill dynamically a list adding html content -->
+  <% list.forEach(category => { %>
+    <li>
+      <a href="/categories/<%=category%>">
+        <%=category %>
+      </a>
+    </li>
+    <% }) %>
+</ul>

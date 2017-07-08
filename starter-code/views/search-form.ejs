@@ -1,0 +1,12 @@
+ <form action="/search-form" method="POST">
+   <label>Get jokes by category</label>
+   <input type="text" name="key">
+   <input type="submit" value="Submit">
+ </form>
+
+ <% if (jokes) { %>
+    <h2>CATEGORY: <%= category%> JOKES: <%=count%></h2>
+    <% jokes.forEach(item => { %>
+      <p><%= item.value %></p>
+    <% }) %>
+  <% } %>
