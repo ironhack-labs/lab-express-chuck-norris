@@ -3,10 +3,15 @@ const app = express();
 const Chuck = require('chucknorris-io');
 const client = new Chuck();
 const expressLayouts = require('express-ejs-layouts');
+const bodyParser = require('body-parser');
+const port = 3000;
 
 //layouts
 app.use(express.static('public'));
 app.use(expressLayouts);
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.set('layout', 'layouts/main'); // initial
 app.set('views', __dirname + '/views'); //engine de js
 app.set('view engine', 'ejs'); // compilar ejs's
@@ -68,19 +73,44 @@ app.get("/categories/:category", (req, res, next) => {
         category: req.params.category,
         joke: response.value
       };
-      res.render("joke-by-category", {"category": data.category, "joke": data.joke});
+      res.render("joke-by-category", {
+        "category": data.category,
+        "joke": data.joke
+      });
     }).catch((err) => {
       res.send(`ERROR GETTING CATEGORY`);
     });
 });
 
-
-app.get('/search', (req, res, next) => {
-  let text = "Estoy en random";
-  console.log(`${text}`);
-  res.send(`req: ${text}`); // puedo meter lo que quiera, un index con trozos de html
+app.get('/search-form', (req, res, next) => {
+  let data = {
+    jokes: false
+  };
+  res.render('search-form', {
+    "jokes": data.jokes
+  });
 });
 
-app.listen(3000, () => {
+/**
+ * Send jokes to an array in search-form
+ */
+app.post("/search-form", (req, res, next) => {
+
+  client.search(req.body.key)
+    .then((response) => {
+      console.log(response);
+      let data = {
+        category: req.body.keyword,
+        count: response.count,
+        jokes: response.items,
+        //response.items[0].value --> one joke
+      };
+      res.render("search-form", {"category": data.category,"jokes":data.jokes,"count":data.count});
+    }).catch(function(err) {
+      res.send(`ERROR GETTING POST SEARCH FORM`);
+    });
+});
+
+app.listen(port, () => {
   console.log('My first app listening on port 3000!');
 });
