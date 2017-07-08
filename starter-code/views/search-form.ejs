@@ -1,0 +1,12 @@
+
+    <form action="/search" method="POST">
+        <label for="keyword">keyword:</label>
+        <input id="keyword" type="text" name="keyword">
+        <input type="submit" value="Submit">
+    </form>
+
+<% if (jokes) { %>
+    <% jokes.forEach( (joke) => { %>
+      <li><%= joke.value %></li>
+    <% }) %>
+<% } %>
