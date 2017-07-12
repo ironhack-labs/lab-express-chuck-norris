@@ -6,12 +6,12 @@ const client = new Chuck();
 app.use(express.static('public'));
 // app.use(expressLayouts);
 
-app.set('layout', 'layouts/main-layout');
+// app.set('layout', 'layouts/main-layout');
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res, next) => {
-  res.render('index', data);
+  res.render('index');
 });
 
 app.get('/random', (req, res, next) => {
@@ -21,22 +21,35 @@ app.get('/random', (req, res, next) => {
   });
 });
 
+
 app.get('/categories', (req, res) => {
-  if (Object.keys(req.query).length === 0) {
-    client.getJokeCategories()
-    .then((response)=>  {
-      res.render('categories', {categories: response});
-    })
-  } else {
+  if (req.query.cat !== undefined) {
     client.getRandomJoke(req.query.cat)
     .then((response) => {
-      res.render('random', response);
+      response.cat = req.query.cat;
+      res.render('joke-by-category', response);
     });
+  } else {
+    client.getJokeCategories()
+    .then((response) => {
+      res.render('categories', {categories: response});
+    })
   };
 });
 
 app.get('/search', (req, res, next) => {
-  res.render('search', data);
+  res.render('search', {value: ' ' });
+});
+
+app.post('/search', (req, res, next) => {
+  const searchTerm = req.query.keyword;
+
+  client.search(searchTerm)
+  .then((response) => {
+    res.render('search', {value: response });
+  }).catch((err) => {
+    res.render('search', {value: err });
+  });
 });
 
 app.listen(3000, () => {
