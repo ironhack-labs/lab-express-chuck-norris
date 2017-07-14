@@ -8,5 +8,10 @@
  <button type="submit">Search</button>
 </form>
 
-<p> <%= value %></p>
+<ul>
+  <% jokes.forEach((joke) => { %>
+    <li> <img src="<%=joke.iconUrl%>"> <%= joke.value %> </li>
+  <% }) %>
+</ul>
+
 <br> <a href="/"> Home </a>

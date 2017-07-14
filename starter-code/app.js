@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const Chuck  = require('chucknorris-io');
 const client = new Chuck();
+const bodyParser = require('body-parser');
 
 app.use(express.static('public'));
-// app.use(expressLayouts);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // app.set('layout', 'layouts/main-layout');
 app.set('views', __dirname + '/views');
@@ -38,17 +40,18 @@ app.get('/categories', (req, res) => {
 });
 
 app.get('/search', (req, res, next) => {
-  res.render('search', {value: ' ' });
+  res.render('search', {jokes: []});
 });
 
 app.post('/search', (req, res, next) => {
-  const searchTerm = req.query.keyword;
+  const searchTerm = req.body.keyword;
 
   client.search(searchTerm)
   .then((response) => {
-    res.render('search', {value: response });
+    let jokes = response.items;
+    res.render('search', { jokes: jokes } );
   }).catch((err) => {
-    res.render('search', {value: err });
+    res.render('search', { jokes: err });
   });
 });
 
