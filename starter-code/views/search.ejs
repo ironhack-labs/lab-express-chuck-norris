@@ -1,0 +1,17 @@
+<h1> Chuck Norris jokes </h1>
+<h2> Search for a joke </h2>
+
+<form action="/search" method="POST">
+  <label for="keyword">Enter the keyword</label>
+  <input type="text" id="keyword" name="keyword">
+
+ <button type="submit">Search</button>
+</form>
+
+<ul>
+  <% jokes.forEach((joke) => { %>
+    <li> <img src="<%=joke.iconUrl%>"> <%= joke.value %> </li>
+  <% }) %>
+</ul>
+
+<br> <a href="/"> Home </a>
