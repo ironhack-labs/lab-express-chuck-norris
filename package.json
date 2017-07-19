@@ -1,0 +1,24 @@
+{
+  "name": "lab-express-chuck-norris",
+  "version": "1.0.0",
+  "description": "![Ironhack Logo](https://i.imgur.com/1QgrNNw.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/octlap/lab-express-chuck-norris.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/octlap/lab-express-chuck-norris/issues"
+  },
+  "homepage": "https://github.com/octlap/lab-express-chuck-norris#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "chucknorris-io": "^1.0.4",
+    "nodeman": "^1.1.2"
+  }
+}
