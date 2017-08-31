@@ -1,3 +1,9 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<h1>Categories</h1>
+
+<ul>
+
+    <% listOfCategories.forEach((category) => { %>
+      <li> <a href="/categories-search?cat=<%=category%> "> <%= category %></a> </li>
+  <% }); %>
+
+  </ul>
