@@ -1,16 +1,21 @@
 {
-  "name": "lab-chuck-norris",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "express-starter",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./bin/www --watch ."
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "body-parser": "~1.17.1",
     "chucknorris-io": "^1.0.4",
-    "ejs": "^2.5.5",
-    "express": "^4.14.0"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
+    "express-ejs-layouts": "^2.3.1",
+    "express-session": "^1.15.5",
+    "morgan": "~1.8.1",
+    "nodemon": "^1.11.0",
+    "serve-favicon": "~2.4.2"
   }
 }
