@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Joke by Keyword</title>
+  </head>
+  <body>
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/random">Random</a>
+      <a href="/categories">Categories</a>
+      <a href="/search">Keyword</a>
+    </nav>
+
+    <ul>
+     <% chuck.items.forEach((oneChuck)=> {%>
+     <li> <%= oneChuck.value %> </li>
+   <% }); %>
+  </ul>
+
+
+  </body>
+</html>
