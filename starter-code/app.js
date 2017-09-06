@@ -31,13 +31,14 @@ app.get('/categories', (req, res) => {
   client.getJokeCategories()
     .then((response) => {
       res.render('categories', {
-          categories: response
-        })
-        .catch((err) => {
+          categories: response,
+          url: "http://localhost:3000/categories?cat="
+        }).catch((err) => {
           console.log("Error retrieving categories");
         });
     })
 })
+
 
 
 

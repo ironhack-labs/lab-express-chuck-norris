@@ -3,7 +3,7 @@
 
     <ul>
       <% categories.forEach( c => { %>
-        <li><%= c %></li>
+        <li><a href=<%=`http://localhost:3000/categories?cat=${c}`%>><%= c %></a></li>
       <%  } ) %>
     </ul>
 
