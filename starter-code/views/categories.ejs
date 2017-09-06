@@ -1,3 +1,9 @@
   <body>
     <h1>Categories</h1>
+
+    <ul>
+      <% cat.forEach((item) => { %>
+        <li><a href="http://localhost:3000/categories/<%= item %>"><%= item %></li></a>
+      <%  })  %>
+    </ul>
   </body>
