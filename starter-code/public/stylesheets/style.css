@@ -3,10 +3,13 @@
     color: #1B5E20;
 }
 
+<<<<<<< HEAD
 *:focus {
     outline: none;
 }
 
+=======
+>>>>>>> 2b3641d93e0614abad7b06fec55753d6b643a17d
 h1, h4 {
     font-family: 'Arvo', serif;
 }
@@ -21,6 +24,7 @@ h3, h6 {
 
 p {
     font-family: 'Arvo', sans-serif;
+<<<<<<< HEAD
 }
 
 img {
@@ -112,4 +116,6 @@ button:hover {
 .norris-container {
     margin: auto;
     width: 50%;
+=======
+>>>>>>> 2b3641d93e0614abad7b06fec55753d6b643a17d
 }
