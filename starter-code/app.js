@@ -11,7 +11,10 @@ app.set('layout', 'index')
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+app.use(bodyParser.urlencoded({ extended: true}))
+
 let myQuery
+let myBody
 
 app.get('/random', (req, response, next) => {
   client.getRandomJoke()
@@ -41,6 +44,22 @@ app.get('/random', (req, response, next) => {
       console.log(err)
     })
   })
+
+app.get('/search', (req, res, next) => {
+  res.render('search-form.ejs')
+})
+
+app.post('/search', (req, res, next) => {
+  client.search(req.body.jocke)
+    .then(function(response){
+      console.log(response.items[0].value);
+    }).catch(function(err){
+      console.log(err)
+    })
+
+})
+
+
 
 
 
