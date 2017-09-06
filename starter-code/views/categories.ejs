@@ -1,3 +1,6 @@
   <body>
     <h1>Categories</h1>
+    <% categories.forEach(e => {%>
+      <a href='http://localhost:3000/categories?cat='<%= e %>><%= e %></a>
+    <% }) %>
   </body>
