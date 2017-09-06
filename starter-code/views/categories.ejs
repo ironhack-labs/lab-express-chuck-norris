@@ -2,7 +2,7 @@
     <h1>Categories</h1>
     <ul>
     <% categories.forEach( a => { %>
-        <li> <a href="http://localhost:3000/categories?cat=<%= a%>"><%= a.toUpperCase()%></li>
+        <li> <a href="/categories/<%= a%>"><%= a.toUpperCase()%></li>
     <% }) %>
     </ul>
   </body>

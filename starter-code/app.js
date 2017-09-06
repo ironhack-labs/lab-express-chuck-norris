@@ -5,6 +5,7 @@ const client = new Chuck();
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.set("layout" , "index");
 
 
 
@@ -21,6 +22,27 @@ app.get('/random', (req, res) => {
   });
 });
 // Retrieve a random chuck joke
+
+
+
+app.get('/categories/:cat', (req, res) =>{
+
+  client.getRandomJoke(req.params.cat)
+    .then((response)=>  {
+      // use the response here
+      res.render('joke-by-category', {
+        joke: response.value
+      });
+    })
+    .catch((err)=> {
+      // handle error
+      console.log("Esto no va! 2");
+
+    });
+
+
+});
+
 
 app.get('/categories', (req, res) =>{
 
