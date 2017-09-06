@@ -50,7 +50,7 @@ app.get('/search', (req, res) => {
   res.render('search-form');
 });
 
-app.post('/joke', (req, res) => {
+app.post('/search', (req, res) => {
   client.search(req.body.terms)
     .then((response) => {
       client.getRandomJoke(req.body.terms)
