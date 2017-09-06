@@ -16,10 +16,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
-
 app.get('/random', (req, res) => {
   client.getRandomJoke()
-    .then( response => {
+    .then((response) => {
       res.render('random-joke', {
         joke: response
       })
@@ -27,6 +26,21 @@ app.get('/random', (req, res) => {
       console.log("Unable to get a random joke")
     })
 })
+
+app.get('/categories', (req, res) => {
+  client.getJokeCategories()
+    .then((response) => {
+      res.render('categories', {
+          categories: response
+        })
+        .catch((err) => {
+          console.log("Error retrieving categories");
+        });
+    })
+})
+
+
+
 
 let port = 3000
 app.listen(port, () => {
