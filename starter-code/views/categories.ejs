@@ -1,3 +1,8 @@
   <body>
     <h1>Categories</h1>
+    <ol class="categories-ordered-list">
+        <% categories.forEach((item) => { %>
+         <li class="categories-list"><p> <a href="/categories/<%= item %>"><%= item %></a></p></li>
+        <% }) %>
+    </ol>
   </body>
