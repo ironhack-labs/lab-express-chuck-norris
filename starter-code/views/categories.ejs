@@ -1,10 +1,9 @@
-  <body>
-    <h1>Categories</h1>
-    <ul>
 
-      <% array.forEach( (e)=>{ %>
-        <li><a href="http://localhost:3000/joke?cat=<%= e %>"> <%= e %> </a></li>
-      <% }) %>
-
-    </ul>
-  </body>
+<h1>Categories</h1>
+<ul>
+  <% array.forEach( e =>{ %>
+    <li>
+      <a href="joke?cat=<%= e %>"><%= e %></a>
+    </li>
+  <% }) %>
+</ul>
