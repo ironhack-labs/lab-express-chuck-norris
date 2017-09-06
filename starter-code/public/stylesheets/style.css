@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    color: #1B5E20;
+}
+
+h1, h4 {
+    font-family: 'Arvo', serif;
+}
+
+h2, h5 {
+    font-family: 'Lato', sans-serif;
+}
+
+h3, h6 {
+    font-family: 'Raleway', sans-serif;
+}
+
+p {
+    font-family: 'Arvo', sans-serif;
+}
+
+img {
+    border-radius: 45px;
+}
+
+.container {
+    margin: auto;
+    text-align: center;
+}
+
+.items-box-horizontal {
+    display: flex;
+    justify-content: space-around;
+}
+
+.items-box-vertical {
+    display: flex;
+    flex-direction: column;
+}
