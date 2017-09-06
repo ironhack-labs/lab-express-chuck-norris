@@ -27,19 +27,32 @@ app.get('/random', (req, res) => {
     })
 })
 
+
 app.get('/categories', (req, res) => {
   client.getJokeCategories()
     .then((response) => {
       res.render('categories', {
-          categories: response,
-          url: "http://localhost:3000/categories?cat="
-        }).catch((err) => {
-          console.log("Error retrieving categories");
-        });
-    })
+          categories: response
+      })
+    }).catch((err) => {
+      console.log("Error retrieving categories");
+    });
 })
 
-
+// app.get('/joke-by-category', (req, res) => {
+//   client.getJokeCategories()
+//     .then((response) => {
+//       res.render('categories', {
+//           categories: response,
+//           url: "http://localhost:3000/categories?cat="
+//         }).catch((err) => {
+//           console.log("Error retrieving categories");
+//         });
+//
+//       })
+//       // let category = req.query.cat;
+//       // console.log (category);
+// })
 
 
 
