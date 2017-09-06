@@ -32,6 +32,19 @@ app.get('/categories', (req,res) =>{
   });
 });
 
+app.get('/joke', (req,res) =>{
+  client.getRandomJoke( req.query.cat )
+    .then( (response) => {
+      res.render('joke-by-category', {
+        joke: response.value,
+      });
+    }).catch((err) => {
+    // handle error
+    });
+});
+
+
+
 
 
 
