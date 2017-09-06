@@ -1,3 +1,9 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+
+<h1>Categories</h1>
+<ul>
+  <% array.forEach( e =>{ %>
+    <li>
+      <a href="joke?cat=<%= e %>"><%= e %></a>
+    </li>
+  <% }) %>
+</ul>
