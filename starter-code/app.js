@@ -19,50 +19,41 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static('public'))
 
-let chuckNorrisCategories,
-  randomJoke, randomCategory
-
-
 app.get('/random', (req, res) => {
   client.getRandomJoke()
     .then(res => {
-      randomJoke = res.value
+			res.render('random-joke', {
+		    randomJokeText: res.value
+		  })
     })
     .catch(err => {
       throw err
     })
-
-  res.render('random-joke', {
-    randomJokeText: randomJoke
-  })
 })
 
 app.get('/categories', (req, res) => {
   client.getJokeCategories().then(res => {
-    chuckNorrisCategories = res
+		res.render('categories', {
+	    categories: res
+	  })
   }).catch(err => {
     throw err
-  })
-  res.render('categories', {
-    categories: chuckNorrisCategories
   })
 })
 
 
 app.get("/category", (req, res) => {
   client.getRandomJoke(req.query.cat).then(res => {
-    randomCategory = res
+		res.render("category", {
+	    cat: res
+	  })
   }).catch(err => {
     throw err
-  })
-  res.render("category", {
-    cat: randomCategory
   })
 })
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!!')
 })
 
 app.listen(PORT, (req, res) => {
