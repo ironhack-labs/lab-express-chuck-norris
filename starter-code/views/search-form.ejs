@@ -5,9 +5,10 @@
     <link rel="stylesheet" type="css/text" href="../public/stylesheets/style.css">
   </head>
   <body>
-    <h1>Categories</h1>
-    <ul><% categories.forEach(category => { %>
-      <li><a href="/category?cat=<%= category %>"><%= category %></a></li>
-    <%})%></ul>
-    </body>
+    <form action="search" method="post">
+    <label><input type="text" name="searched" id="searched">Search</label>
+  <input type="submit"value="GOOOOO">
+  </form>
+  </body>
 </html>
+
