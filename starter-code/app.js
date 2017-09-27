@@ -6,14 +6,13 @@ const client = new Chuck();
 const ejs = require('ejs')
 
 //Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res, next) => {
-  response.render('index')
+  res.render('index')
 });
 
 app.get('/random', (req, res, next) => {
@@ -62,10 +61,11 @@ app.get('/search', (req, res, next) => {
 });
 
 app.post('/search', (req, res, next) => {
-  let data = 
-  client.search(searched).then((response) => {
-    data['joke'] = response
-    res.render('search-form')
+  let data = req.body.searched
+  console.log('***** SEARCH *****  ', data)
+  client.search(data).then((response) => {
+    console.log('**** JOKE SEARCH ***** ', response)
+    res.render('search-result', response)
   }).catch((error) => {
     throw error
   })

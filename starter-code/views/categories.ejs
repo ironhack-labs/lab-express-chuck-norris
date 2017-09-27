@@ -5,6 +5,12 @@
     <link rel="stylesheet" type="css/text" href="../public/stylesheets/style.css">
   </head>
   <body>
+      <h1>Welcome to the Chuck Norris joke app!</h1>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/search">Search</a></li>
+        <li><a href="/random">Random</a></li>
+      </ul>
     <h1>Categories</h1>
     <ul><% categories.forEach(category => { %>
       <li><a href="/category?cat=<%= category %>"><%= category %></a></li>

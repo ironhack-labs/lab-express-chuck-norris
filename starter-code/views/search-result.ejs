@@ -14,6 +14,10 @@
     <form action="search" method="post">
     <label><input type="text" name="searched" id="searched">Search</label>
   <input type="submit"value="GOOOOO">
+  <h2><%= count %> result(s) found !</h2>
+  <% items.forEach( joke => { %>
+      <p><%= joke.value %></p>
+    <%})%>
   </form>
   </body>
 </html>
