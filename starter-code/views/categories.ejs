@@ -1,8 +1,9 @@
   <body>
     <h1>Categories</h1>
-    <p>
+    <ul>
       <% for(let i = 0; i < categories.length; i++) { %>
-      <%= categories[i] %>
+        <% let cat = categories[i];%>
+    <li><a href="http://localhost:3000/joke-by-category?cat=<%= cat %>"</a><%= cat%> </li>
     <% }%>
-  </p>
+  </ul>
   </body>

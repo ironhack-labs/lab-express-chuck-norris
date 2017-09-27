@@ -1,8 +1,12 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+const bodyParser = require('body-parser');
+
 const Chuck  = require('chucknorris-io');
 const app = express();
 app.use(expressLayouts);
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 const client = new Chuck();
 
@@ -21,7 +25,6 @@ app.get('/random', (req, res, next) => {
   // Retrieve a random chuck joke
 client.getRandomJoke()
   .then((joke) => {
-    console.log(joke);
     res.render('random',{
       joke: joke
     });
@@ -36,7 +39,6 @@ app.get('/categories', (req, res, next) => {
 
   client.getJokeCategories()
   .then((categories)=>  {
-    console.log(categories);
     res.render('categories', {
       categories: categories
     })
@@ -44,6 +46,20 @@ app.get('/categories', (req, res, next) => {
   .catch((err)=> {
     // handle error
   });
+})
+
+app.get('/joke-by-category', (req, res, next) => {
+  let cat = req.query.cat;
+  client.getRandomJoke(cat)
+  .then((joke) => {
+    console.log(joke);
+    res.render('joke-by-category', {
+      joke, cat
+    })
+  })
+  .catch((err) => {
+
+  })
 })
 
 app.listen(3000, () => {
