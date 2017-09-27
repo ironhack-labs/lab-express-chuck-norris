@@ -1,10 +1,15 @@
 const express = require('express');
-const app = express();
 const Chuck  = require('chucknorris-io');
+const expressLayouts = require('express-ejs-layouts');
+const bodyParser = require('body-parser');
+
+const app = express();
 const client = new Chuck();
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -37,16 +42,30 @@ client.getJokeCategories()
   }).catch((err) => {
     // handle error
     console.log(err);
-});
+  });
 });
 
-app.get('/joke-by-category', (req, res, category) => {
-  // Retrieve a random chuck joke
-client.getRandomJoke(category)
+app.get('/categories', (req, res) => {
+  let cat = req.query.cat;
+  client.getRandomJoke(cat)
   .then((randomJoke) => {
-    res.render('random', {
+    res.render('categories', {
       randomJoke
-    });
+    }
+  );
+  }).catch((err) => {
+    console.log(err);
+  });
+});
+
+app.post('/search', (req, res) => {
+  let jokeKeyword = req.body.jokeKeyword;
+  client.search(jokeKeyword)
+  .then((searchedJoke) => {
+    res.render('search', {
+      searchedJoke
+    }
+  );
   }).catch((err) => {
     console.log(err);
   });
