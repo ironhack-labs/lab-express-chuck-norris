@@ -1,1 +1,9 @@
+<link rel="stylesheet" type="text/css" href="/style.css">
 
+<ul>
+  <% jokeCategories.forEach((category) => { %>
+  <li>
+  <a href="/categories?cat=<%=category%>">--<%=category%>--</a>
+  <% }) %>
+  <li>
+</ul>
