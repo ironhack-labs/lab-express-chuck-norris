@@ -58,11 +58,16 @@ app.get('/categories', (req, res) => {
   });
 });
 
+app.get('/search', (req, res) => {
+  res.render('search-form');
+});
+
 app.post('/search', (req, res) => {
   let jokeKeyword = req.body.jokeKeyword;
+  console.log(jokeKeyword);
   client.search(jokeKeyword)
   .then((searchedJoke) => {
-    res.render('search', {
+    res.render('search-result', {
       searchedJoke
     }
   );
