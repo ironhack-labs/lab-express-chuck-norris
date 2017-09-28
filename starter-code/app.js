@@ -33,10 +33,10 @@ client.getRandomJoke()
 app.get('/joke-by-category', (req, res) => {
   // Retrieve a random chuck joke
 client.getJokeCategories()
-  .then((jokeCategory) => {
-    console.log(jokeCategory);
+  .then((jokeCategories) => {
+    console.log(jokeCategories);
     res.render('joke-by-category', {
-      jokeCategory
+      jokeCategories
     });
     // use the response here
   }).catch((err) => {
@@ -67,6 +67,7 @@ app.post('/search', (req, res) => {
   console.log(jokeKeyword);
   client.search(jokeKeyword)
   .then((searchedJoke) => {
+    console.log(searchedJoke);
     res.render('search-result', {
       searchedJoke
     }
