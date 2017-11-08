@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "chucknorris-io": "^1.0.4",
-    "ejs": "^2.5.5",
-    "express": "^4.14.0"
+    "ejs": "^2.5.7",
+    "express": "^4.14.0",
+    "express-ejs-layouts": "^2.3.1"
   }
 }
