@@ -1,3 +1,14 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<body>
+
+  <!-- <pre><%=JSON.stringify(categories,null,2)%></pre> -->
+
+  <h1>Categories</h1>
+  <% categories.forEach((el,ix) => { %>
+    <a href="categories/<%=el %>">
+      <%= el %>
+    </a>
+    <% }) %>
+
+
+
+</body>
