@@ -23,12 +23,20 @@ app.get('/random', (request, response, next) => {
 });
 
 app.get('/categories', (request, response, next) => {
-    client.getJokeCategories().then((res) => {
-        response.render('categories',  {chisteCat : res});
-  }).catch((err) => {
-    console.log ("Chuck ha muerto2.")
-
-  });
+if (request.query.cat === undefined){
+  client.getJokeCategories().then((res) => {
+            response.render('categories',  {chisteCat : res});
+            }).catch((err) => {
+        console.log ("Chuck ha muerto Categories.")
+      });
+    } else {
+      client.getJokeCategories().then((res) => {
+            response.render('joke-by-category',  {chisteCat : res});
+            console.log('joke');
+            }).catch((err) => {
+        console.log ("Chuck dies")
+          });
+    }
 });
 
 // Server Started
