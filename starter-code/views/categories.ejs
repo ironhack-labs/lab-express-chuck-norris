@@ -1,3 +1,11 @@
   <body>
     <h1>Categories</h1>
+    <ul>
+        <% for(var i=0; i<categories.length; i++) { %>
+            <li>
+                <a href="<%= categories[i] %>"><%= categories[i] %></a>
+            </li>
+        <% } %>
+    </ul>
+    
   </body>
