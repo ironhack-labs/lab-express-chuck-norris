@@ -10,7 +10,13 @@
       <button type="submit">Search</button>
     </form>
     <%if (searchResults) { %>
-      <p>hola</p>
+      <div class="results">
+      <ul>
+      <% searchResults.forEach((joke) => { %>
+        <li><%= value %></li>
+      <% }) %>
+    </ul>
+    </div>
   <% } %>
   </body>
 </html>
