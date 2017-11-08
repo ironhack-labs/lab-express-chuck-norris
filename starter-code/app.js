@@ -27,8 +27,13 @@ app.get('/random', (request, response, next) => {
 });
 
 app.get('/categories', (request, response, next) => {
-    console.log(request);
-    response.send('<p>Welcome Ironhacker. :)</p>');
+    client.getJokeCategories()
+    .then((joke) => {
+       response.render('categories', {dataArray: joke} )
+    }).catch((err) => {
+      console.log(err)
+    });
+    
 });
 
 app.get('/search', (request, response, next) => {
