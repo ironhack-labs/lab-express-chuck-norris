@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 const Chuck  = require('chucknorris-io');
+const bodyParser = require('body-parser');
 const client = new Chuck();
 
+app.use(bodyParser());
+app.use(express.json());
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
@@ -41,6 +44,23 @@ app.get('/categories', (request, response, next) => {
     // handle error
   });
   }
+});
+
+app.get('/search', (request, response, next) => {
+  response.render('search-form');
+});
+
+app.post('/search', (request, response, next) => {
+  // console.log('request body es ' + request);
+  client.search(request.body.searchTerm)
+  .then(function (res) {
+    console.log(res);
+    response.render('search-form');
+
+    // to stuff here
+  }).catch(function (err) {
+    // handle error
+  });
 });
 
 // Server Started
