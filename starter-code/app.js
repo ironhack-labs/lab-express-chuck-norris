@@ -10,26 +10,35 @@ app.set("view engine", "ejs");
 app.get("/index", (req, res, next) => {
   res.render("index");
 });
+
 app.get("/random", (req, res, next) => {
   client
     .getRandomJoke()
     .then(function(response) {
-      res.render("random", response);
-      //console.log(response);
+      res.render("random", {response});
     })
     .catch(function(err) {});
 });
 
 app.get("/categories", (req, res, next) => {
+  if(req.query.cat != undefined){
+    client
+      .getRandomJoke(req.query.cat)
+      .then(function(response) {
+        response.categories = req.query.cat;
+        res.render("joke-by-category", {response});
+      })
+      .catch(function(err) {});
+  } else {
   let cat = {};
   client
     .getJokeCategories()
     .then(function(response) {
       cat.categs = response;
-      res.render("categories", cat);
-      //console.log(response);
+      res.render("categories", {cat});
     })
     .catch(function(err) {});
+  }
 });
 
 // Random categorie quote generator, Bonus!!
@@ -40,13 +49,11 @@ app.get("/rcategories", (req, res, next) => {
     .then(function(response) {
       joke.cat = response;
       let x = Math.floor(Math.random() * joke.cat.length);
-      //console.log(response);
       client
         .getRandomJoke(joke.cat[x])
         .then(function(response) {
           response.categories = joke.cat[x];
-          //console.log(response2);
-          res.render("rcategories", response);
+          res.render("rcategories", {response});
         })
         .catch(function(err) {});
     })
