@@ -1,5 +1,6 @@
   <body>
     <h1>Categories</h1>
+    
     <% dataArray.forEach((e)=>{ %>
-      <p><%= e %></p> <% }) %>
+      <a href="http://localhost:3000/categories?cat=<%= e %>"> <%= e %> </a> <% }) %>
   </body>

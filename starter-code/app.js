@@ -36,6 +36,16 @@ app.get('/categories', (request, response, next) => {
     
 });
 
+app.get('/categories', (request, response, next) => {
+    client.getJokeCategories(request.query.cat)
+    .then((joke) => {
+       response.render('joke-by-category', {joke} )
+    }).catch((err) => {
+      console.log(err)
+    });
+    
+});
+
 app.get('/search', (request, response, next) => {
     console.log(request);
     response.send('<p>Welcome Ironhacker. :)</p>');
