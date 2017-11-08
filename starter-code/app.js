@@ -3,18 +3,44 @@ const app = express();
 const Chuck  = require('chucknorris-io');
 const client = new Chuck();
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
 app.get('/random', (request, response, next) => {
   client.getRandomJoke()
   .then((res) => {
     // use the response here
-    console.log(res);
-    response.send(`<p>${res.value}</p>`);
+    response.render('index', res);
 
   }).catch((err) => {
-    console.log('Error');
+    // handle error
+    throw new Error(err.message);
+  });
+});
+
+app.get('/categories', (request, response, next) => {
+  console.log(request.query);
+  if(Object.keys(request.query).length === 0) {
+    client.getJokeCategories()
+    .then((res) => {
+      // use the response here
+      response.render('categories', {categories : res});
+      console.log(res);
+
+    }).catch((err) => {
+      // handle error
+      throw new Error(err.message);
+    });
+  } else {
+    client.getRandomJoke(request.query.cat)
+  .then((res) => {
+    // use the response here
+    console.log(res);
+    response.render('joke-by-category', res);
+  }).catch((err) => {
     // handle error
   });
-  // next();
+  }
 });
 
 // Server Started
