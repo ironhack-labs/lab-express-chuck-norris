@@ -7,11 +7,13 @@ const client = new Chuck();
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded( { extended:true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // our first Route:
 app.get('/random', (request, response) => {
-  let cat  = request.query.cat;
+  let cat = request.query.cat;
   if (cat) {
     client.getRandomJoke(cat)
       .then((res) => {
@@ -58,16 +60,19 @@ app.get('/search', (request, response) => {
 });
 
 app.post('/search', (request, response) => {
-  let searchTerm  = request.body.searchTerm;
+  let searchTerm = request.body.searchTerm;
   client.search(searchTerm)
-    .then(function(response) {
+    .then((res) => {
       // to stuff here
-      console.log(response);
-      let searchResults = response;
-      response.render('search-results', {searchResults});
+      console.log(res);
+      let searchResults = res;
+      response.render('search-form', {
+        searchResults:res
+      });
     })
-    .catch(function(err) {
+    .catch((err) => {
       // handle error
+      response.render('search-form', err);
     });
 });
 
