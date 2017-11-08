@@ -1,0 +1,18 @@
+<head>
+  <title>The Chuck Norris Joke Department</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+  <form action="/search" method="post">
+    <label for="term">Look for a term in all Chuck Norris Quotes</label>
+    <input type="text" name="term">
+    <button type="submit">Get quote!</button>
+  </form>
+
+
+  <% response.forEach(e => {%>
+    <p>
+      <%= e.value %>
+    </p>
+  <% }) %>
+</body>

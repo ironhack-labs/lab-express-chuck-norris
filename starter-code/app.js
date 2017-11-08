@@ -2,11 +2,15 @@ const express = require("express");
 const app = express();
 const Chuck = require("chucknorris-io");
 const client = new Chuck();
+const bodyParser = require('body-parser');
+
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 
-//app.use(express.static("views"));
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.get("/index", (req, res, next) => {
   res.render("index");
 });
@@ -41,6 +45,19 @@ app.get("/categories", (req, res, next) => {
   }
 });
 
+app.get("/search", (req, res, next) => {
+  res.render("search", {response: []});
+});
+
+app.post("/search", (req,res) => {
+  console.log(req.body)
+  client
+    .search(req.body.term)
+    .then(function(response) {
+      res.render("search", {response: response.items});
+    })
+    .catch(function(err) {});
+})
 // Random categorie quote generator, Bonus!!
 app.get("/rcategories", (req, res, next) => {
   let joke = {};
