@@ -1,3 +1,8 @@
   <body>
     <h1>Categories</h1>
+<ul><%response.forEach (function (e){%>
+  <li>
+    <a href="/response?cat=e"><%=e%></a>
+  </li>
+<%})%></ul>
   </body>
