@@ -1,3 +1,17 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<head>
+  <title>The Chuck Norris Joke Department</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+  <h1>Categories</h1>
+  <ul>
+    <% cat.categs.forEach(e => { %>
+      <% let link = `/categories?cat=${e}` %>
+        <li>
+          <a href= "<%= link %>">
+          <%= e %>
+            </a>
+        </li>
+        <% });  %>
+  </ul>
+</body>
