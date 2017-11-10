@@ -1,3 +1,13 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<h1>Categories</h1>
+
+<ul>
+  <%categoryList.forEach((cat)=>{%>
+    <li><a href="/joke-by-category?category=<%=cat%>">  <%=cat%>  </p></li>
+  <%})%>
+</ul>
+
+<!-- <ul>
+  <%categoryList.forEach((cat)=>{%>
+    <li><a href="/joke-by-category"><%=cat%></p></li>
+  <%})%>
+</ul> -->
