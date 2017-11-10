@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
   <body>
-    <h1>Categories</h1>
+
+      <h1>Categories</h1>
+
+      <div>
+        <ul>
+          <% categoryVal.forEach((oneC) => { %>
+          <li>
+            <a href="/" + <%= oneC %>  ><%= oneC %></a>
+          </li>
+        <%  }) %>
+        </ul>
+
+
+</div>
+
+
   </body>
+</html>
