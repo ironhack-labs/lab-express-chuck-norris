@@ -1,3 +1,13 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+
+<h1> Categories </h1>
+
+
+
+
+<% for (let i = 0; i <= categoryList.length; i += 1) { %>
+  <ul>
+    <li>
+        <a href="/aCategory?cat=<%= categoryList[i] %>"> <%= categoryList[i] %> </a>
+    </li>
+  </ul>
+  <% } %>
