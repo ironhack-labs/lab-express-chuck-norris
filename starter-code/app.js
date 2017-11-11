@@ -49,7 +49,7 @@ app.get("/categories", (req, res, next)=> {
 		console.log("Joke Data:");
 		console.log(response);
 
-
+console.log('1111111 ' + response );
 		
 		res.locals.getCategories = response;
 		res.render("categories.ejs"); // displays content
@@ -80,12 +80,17 @@ app.get("/random", (req, res, next)=> {
 
 
 app.get("/yourcategory", (req, res, next)=> { 
-	client.getRandomJoke()
+
+
+	client.getRandomJoke(req.query.CurrentCat)
 
 	.then((response) => {
 		console.log("Joke Data:");
 		console.log(response);
 		console.log("=======> " + req.query.CurrentCat);
+
+
+		
 
 		res.locals.jokeInCat = response.value;
 		res.render("your-category.ejs");
