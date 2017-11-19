@@ -1,3 +1,13 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+ <h2>Categories</h2>
+
+<% getCategories.forEach((oneCat) => { %>
+	
+	<a class="fancy-list" href="/yourcategory?CurrentCat=<%=oneCat%>"> <%=oneCat%> </a>
+	
+<% }); %>
+
+<!-- <p> <%= getCategories %> </p> -->
+
+
+
+
