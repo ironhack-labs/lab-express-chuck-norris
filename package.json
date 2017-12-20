@@ -1,0 +1,24 @@
+{
+  "name": "jb",
+  "version": "1.0.0",
+  "description": "chuk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jb1404/lab-express-chuck-norris.git"
+  },
+  "author": "jb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jb1404/lab-express-chuck-norris/issues"
+  },
+  "homepage": "https://github.com/jb1404/lab-express-chuck-norris#readme",
+  "dependencies": {
+    "chucknorris-io": "^1.0.5",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
