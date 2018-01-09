@@ -22,4 +22,15 @@ client.getRandomJoke()
   });
 });
 
+app.get('/categories', (req, res, next) => {
+  // Retrieve a random chuck joke
+client.getJokeCategories()
+  .then((response) => {
+    // use the response here
+    res.render('categories', {response});
+  }).catch((err) => {
+    console.log(err);
+  });
+});
+
 app.listen(3000);
