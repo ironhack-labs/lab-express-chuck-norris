@@ -22,7 +22,15 @@ app.get('/random', (req, res, next) => {
 });
 
 app.get('/categories', (req, res, next) => {
-
+  client.getJokeCategories()
+  .then((response)=>  {
+    // use the response here
+  //  res.send('<p>'+response.value+'</p>');
+    res.render('categories',{categories: response});
+  })
+  .catch((err)=> {
+    // handle error
+  });
 });
 
 app.get('/search', (req, res, next) => {
