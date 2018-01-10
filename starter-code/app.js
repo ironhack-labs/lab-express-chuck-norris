@@ -11,7 +11,7 @@ app.get('/random', (req, res, next)=>{
 client.getRandomJoke()
   .then((response) => {
     // use the response here
-    //console.log(response);
+    console.log(response);
     res.render('index', response);
 
 
@@ -19,18 +19,30 @@ client.getRandomJoke()
     // handle error
   });
 });
-app.get('/categories', (req, res, next)=>{
-  client.getJokeCategories()
-  .then((response)=>  {
-    // use the response here
-    //console.log(response);
-    res.render('categories', {
-      data: response
-    });
-  })
-  .catch((err)=> {
-    // handle error
-  });
+
+app.get('/categories', (req, res, next) => {
+    if(req.query.cat) {
+        client.getRandomJoke(req.query.cat)
+        .then((response) => {
+            console.log(response);
+            res.render('joke-by-category', response);
+        })
+        .catch((err) => {
+        });
+    }
+    else {
+        client.getJokeCategories()
+        .then((response)=>  {
+            // use the response here
+            //console.log(response);
+            res.render('categories', {
+                data: response
+            });
+        })
+        .catch((err) => {
+            // handle error
+        });
+    }
 });
 
 app.listen(3000, () =>{
