@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Chuck Norris Joke Department</title>
+    <link rel="stylesheet" type="css/text" href="../public/stylesheets/style.css">
+  </head>
+  <body>
+    <a href="/random">Random</a>
+    <a href="/categories">Categories</a>
+    <a href="/search">Search</a>
+    <p>Chuck says:</p>
+    <ul>
+        <% for(let i = 0; i < items.length; i++) { %>
+        <li><%= items[i].value %></li>
+        <% } %>
+    </ul>
+    <form method="post" action="/search">
+        <label for="keyword">Enter keyword:</label>
+        <input id="keyword" type="text" name="keyword"><br>
+        <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
