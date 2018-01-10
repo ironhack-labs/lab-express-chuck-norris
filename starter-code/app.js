@@ -13,17 +13,16 @@ app.get('/random', (request, res, next) => {
     .then((response) => {
       // use the response here
       res.send(`<p>${response.value}</p>`);
-      // res.send(console.log(response));
     }).catch((err) => {
       // handle error
     });
 });
 
 app.get('/categories', (request, res, next) => {
-  if(request.query.cat===undefined){
+  if (request.query.cat === undefined) {
     client.getJokeCategories()
       .then((response) => {
-        
+
         let data = [];
         for (let item of response) {
           let link = "http://localhost:3000/categories?cat=" + item;
@@ -36,15 +35,18 @@ app.get('/categories', (request, res, next) => {
       .catch((err) => {
         // handle error
       });
-  }else{
+  } else {
     client.getRandomJoke(request.query.cat)
-    .then((response) => {
-      // use the response here
-      res.send(`<p>${response.value}</p>`);
-      // res.send(console.log(response));
-    }).catch((err) => {
-      // handle error
-    });
+      .then((response) => {
+        // use the response here
+        console.log("Hola");
+        
+        let objData = {};
+        objData.joke = response.value;
+        res.render('joke-by-category', objData);
+      }).catch((err) => {
+        // handle error
+      });
   }
 });
 
