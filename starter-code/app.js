@@ -22,7 +22,6 @@ app.get('/categories', (request, res, next) => {
   if (request.query.cat === undefined) {
     client.getJokeCategories()
       .then((response) => {
-
         let data = [];
         for (let item of response) {
           let link = "http://localhost:3000/categories?cat=" + item;
@@ -39,8 +38,6 @@ app.get('/categories', (request, res, next) => {
     client.getRandomJoke(request.query.cat)
       .then((response) => {
         // use the response here
-        console.log("Hola");
-        
         let objData = {};
         objData.joke = response.value;
         res.render('joke-by-category', objData);
