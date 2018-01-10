@@ -5,6 +5,9 @@
     <link rel="stylesheet" type="css/text" href="../public/stylesheets/style.css">
   </head>
   <body>
-
+    <% links.forEach((link) => { %>
+      <a href="<%= link %>"><%= link %></a>
+      <br>
+    <% }) %>
   </body>
 </html>

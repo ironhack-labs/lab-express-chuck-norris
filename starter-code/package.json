@@ -10,7 +10,8 @@
   "dependencies": {
     "chucknorris-io": "^1.0.5",
     "ejs": "^2.5.7",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "jshint": "^2.9.5"
   },
   "description": ""
 }
