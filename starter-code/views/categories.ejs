@@ -1,3 +1,10 @@
   <body>
     <h1>Categories</h1>
+    <ul class="list-group">
+      <% categories.forEach(function(c) { %>
+          <a href='/categories/<%= c %>'>
+            <li class="list-group-item"><%= c %></li>
+          </a>
+      <% }); %>
+  </ul>
   </body>
