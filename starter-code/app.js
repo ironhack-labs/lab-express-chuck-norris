@@ -2,19 +2,24 @@ const express = require('express');
 const app = express();
 const Chuck = require('chucknorris-io');
 const client = new Chuck();
+const expressLayouts = require('express-ejs-layouts');
 
 var bodyParser = require('body-parser');
+
+app.use(express.static('public'));
+app.use(expressLayouts);
+app.set('layout', 'layouts/main-layout');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-// our first Route:
+
+
 app.get('/random', (request, res, next) => {
   // Retrieve a random chuck joke
   client.getRandomJoke()
     .then((response) => {
-      // use the response here
-      res.send(`<p>${response.value}</p>`);
+      res.render('random', response);
     }).catch((err) => {
       // handle error
     });
@@ -57,20 +62,24 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.post('/search', function (req, res) {
-  console.log('You sent the category = "' + req.body.categ + '".');
   client.search(req.body.categ)
     .then(function (response) {
       let arraData=[];
       response.items.forEach(element => {
         arraData.push(element.value)
       });
-      res.send(`<p>${arraData}</p>`);
-
-      // console.log(response.items[0].value);
-      // console.log(response.items.length);
+      let arraObj={jokes:arraData};
+      res.render('search-result',arraObj);
     }).catch(function (err) {
       // handle error
     });
+});
+
+app.get('/home', (request, res, next) => {
+  res.render('home');
+});
+app.get('/', (request, res, next) => {
+  res.render('home');
 });
 
 // Server Started
