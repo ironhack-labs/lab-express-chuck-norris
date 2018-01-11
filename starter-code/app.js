@@ -47,6 +47,10 @@ app.get('/categories', (request, res, next) => {
   }
 });
 
+app.get('/search', (request, res, next) => {
+  res.render('search-form');
+});
+
 
 // Server Started
 app.listen(3000, () => {
