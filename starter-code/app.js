@@ -3,6 +3,8 @@ const app = express();
 const Chuck = require('chucknorris-io');
 const client = new Chuck();
 
+var bodyParser = require('body-parser');
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
@@ -50,8 +52,10 @@ app.get('/categories', (request, res, next) => {
 app.get('/search', (request, res, next) => {
   res.render('search-form');
 });
+
+app.use(bodyParser.urlencoded({ extended: true })); 
 app.post('/search', function(req, res) {
-  console.log("FUNCIONA");
+  console.log('You sent the category = "' + req.body.categ + '".');
   
   // res.send('You sent the name "' + req.body.name + '".');
 });
