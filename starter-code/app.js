@@ -50,7 +50,11 @@ app.get('/categories', (request, res, next) => {
 app.get('/search', (request, res, next) => {
   res.render('search-form');
 });
-
+app.post('/search', function(req, res) {
+  console.log("FUNCIONA");
+  
+  // res.send('You sent the name "' + req.body.name + '".');
+});
 
 // Server Started
 app.listen(3000, () => {
