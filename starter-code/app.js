@@ -53,11 +53,24 @@ app.get('/search', (request, res, next) => {
   res.render('search-form');
 });
 
-app.use(bodyParser.urlencoded({ extended: true })); 
-app.post('/search', function(req, res) {
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.post('/search', function (req, res) {
   console.log('You sent the category = "' + req.body.categ + '".');
-  
-  // res.send('You sent the name "' + req.body.name + '".');
+  client.search(req.body.categ)
+    .then(function (response) {
+      let arraData=[];
+      response.items.forEach(element => {
+        arraData.push(element.value)
+      });
+      res.send(`<p>${arraData}</p>`);
+
+      // console.log(response.items[0].value);
+      // console.log(response.items.length);
+    }).catch(function (err) {
+      // handle error
+    });
 });
 
 // Server Started
