@@ -1,1 +1,22 @@
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Chuck Norris Joke Department</title>
+    <link rel="stylesheet" type="css/text" href="../public/stylesheets/style.css">
+  </head>
+  <body>
+    <a href="/random">Random</a>
+    <a href="/categories">Categories</a>
+    <a href="/search">Search</a>
+    <% var cat;
+        if(categories.length != 0) {  
+            cat = categories;
+        }
+        else {
+            cat = "explicit";
+        } 
+        console.log(cat); %>
+    <h1>Categorie: <%= cat %> </h1>
+    <p><%= value %></p>
+  </body>
+</html>
