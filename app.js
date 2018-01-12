@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const Chuck = require('chucknorris-io');
+const client = new Chuck();
 
 app.use(express.static('public'));
 
@@ -12,17 +14,24 @@ app.get('/', (request, response, next) => {
 });
 
 app.get('/random', (request, response, next) => {
-  response.render('index');
+  client.getRandomJoke()
+  .then((res) => {
+    response.send(res.value);
+    console.log(res);
+  }).catch((err) => {
+    response.send(res.err);
+    console.log(err);
+  });
 });
 
 app.get('/categories', (request, response, next) => {
-  response.render('index');
+  response.render('categories');
 });
 
 app.get('/search', (request, response, next) => {
-  response.render('index');
+  response.render('search');
 });
 
 app.listen(3000, () => {
-  console.log('My first app listening on port 3000!')
+  console.log('Server ready')
 });

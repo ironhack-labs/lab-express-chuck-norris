@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/bartsmet30/lab-express-chuck-norris#readme",
   "dependencies": {
+    "chucknorris-io": "^1.0.5",
     "ejs": "^2.5.7",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "nodemon": "^1.14.11"
   }
 }
