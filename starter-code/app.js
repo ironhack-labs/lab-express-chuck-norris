@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const Chuck  = require('chucknorris-io');
 const client = new Chuck();
+const port = process.env.PORT || 4000;
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -78,4 +79,4 @@ app.post('/search', (req, res, next) => {
 });
 
 
-app.listen(3000);
+app.listen(port);
