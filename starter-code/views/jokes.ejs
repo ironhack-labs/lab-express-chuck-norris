@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Chuck Norris Joke Department</title>
+    <link rel="stylesheet" type="css/text" href="../public/stylesheets/style.css">
+  </head>
+  <body>
+    <h1>Jokes on <%= searchTerm %></h1>
+    <% for( var k in jokes.items ){ %>
+    <li><%= jokes.items[k].value %></li>
+    <% } %>
+  </body>
+  </html>
