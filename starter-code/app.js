@@ -17,6 +17,7 @@ app.get('/random', (req, res, next) => {
       res.send('<p>'+response.value+'</p>');
     }).catch((err) => {
       // handle error
+      console.log("Error");
     });
 
 });
@@ -30,6 +31,7 @@ app.get('/categories', (req, res, next) => {
   })
   .catch((err)=> {
     // handle error
+    console.log("Error");
   });
 });
 
