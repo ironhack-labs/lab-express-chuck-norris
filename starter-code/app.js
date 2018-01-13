@@ -60,8 +60,8 @@ app.get('/form', (req,res) => {
 
 
 app.post('/search', (req, res, next) => {
-  
   let searchTerm = req.body.keyword;
+  if(searchTerm){
   console.log(searchTerm);
   client.search(searchTerm)
   .then(function (response) {
@@ -71,6 +71,10 @@ app.post('/search', (req, res, next) => {
   }).catch(function (err) {
     // handle error
   });
+  }else{
+    res.render('search-form');
+  }
+
 });
 
 
