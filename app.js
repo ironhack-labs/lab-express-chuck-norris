@@ -16,16 +16,16 @@ app.get('/', (request, response, next) => {
 app.get('/random', (request, response, next) => {
   client.getRandomJoke()
   .then((res) => {
-    response.send(res.value);
-    console.log(res);
+    response.send(
+    res.value);
+    console.log(res.value);
   }).catch((err) => {
-    response.send(res.err);
     console.log(err);
   });
 });
 
 app.get('/categories', (request, response, next) => {
-  response.render('categories');
+
 });
 
 app.get('/search', (request, response, next) => {
