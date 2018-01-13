@@ -3,10 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>The Chuck Norris Joke Department</title>
-    <link rel="stylesheet" type="css/text" href="../public/stylesheets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
   </head>
   <body>
     <h1>The Chuck Norris Joke Department</h1>
-    <%- body -%>
+    <div class="container">
+      <ul class="nav nav-pills nav-justified">
+        <li role="presentation"><a href="/">Home</a></li>
+        <li role="presentation"><a href="/random">Get a random joke</a></li>
+        <li role="presentation"><a href="/categories">Categories</a></li>
+      </ul>
+      <%- body -%>
+    </div>
   </body>
 </html>

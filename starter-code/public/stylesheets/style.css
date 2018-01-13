@@ -1,0 +1,14 @@
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+h2 {
+  text-align: center;
+}
