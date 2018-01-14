@@ -5,5 +5,12 @@
     <title></title>
   </head>
   <body>
+    <ul>
+      <% categories.forEach((list) =>{ %>
+        <li><a href="http://localhost:3000/categories?cat=<%= list%>"><%= list %></a></li>
+      <% }) %>
+    </ul>
+
+
   </body>
 </html>
