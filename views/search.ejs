@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <form class="keyword" action="/search" method="post">
+    <label for="kw">Enter a keyword to search: </label>
+    <input type="text" name="kw" value="">
+    <input type="submit" name="submit" value="submit">
+  </form>
+
+  <ul>
+    <% for(let i = 0; i < jokes.items.length; i++) { %>
+      <li>
+        <%= jokes.items[i].value %>
+      </li>
+      <% } %>
+  </ul>
+
+
+</body>
+
+</html>
