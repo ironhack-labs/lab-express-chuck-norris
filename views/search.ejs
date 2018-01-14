@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title></title>
+  <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 
-<body>
+<body class="container">
   <form class="keyword" action="/search" method="post">
     <label for="kw">Enter a keyword to search: </label>
     <input type="text" name="kw" value="">
@@ -15,13 +16,13 @@
 
   <ul>
     <% for(let i = 0; i < jokes.items.length; i++) { %>
-      <li>
-        <%= jokes.items[i].value %>
+      <li class="list cursive">
+        "<%= jokes.items[i].value %>"
       </li>
       <% } %>
   </ul>
 
-
+<a href="http://localhost:3000/">Back home</a><br>
 </body>
 
 </html>

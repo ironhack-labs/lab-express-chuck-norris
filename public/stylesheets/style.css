@@ -1,0 +1,46 @@
+
+
+html {
+  background: url(chuck.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  font-family: "helvetica";
+  font-size: 24px;
+  color: darkblue;
+}
+
+.container {
+  width: 1000px;
+  margin: 50px auto;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 20px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: darkblue;
+}
+ a:hover {
+   color: black;
+   text-decoration: underline;
+ }
+
+.cursive {
+  font-style: italic;
+  font-size: 30px;
+}
+
+ul {
+  list-style-type: none;
+}
+.list {
+  list-style-type: disc;
+  font-size: 18px;
+  list-style-position:inside;
+}

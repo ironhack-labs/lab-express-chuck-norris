@@ -59,8 +59,11 @@ app.get('/categories', (request, response, next) => {
 
 
 app.get('/search', (request, response, next) => {
+  let emptyJoke = {
+    items: []
+  }
   response.render('search', {
-    jokes: []
+    jokes: emptyJoke
   });
 });
 
