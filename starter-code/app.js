@@ -35,24 +35,27 @@ client.getRandomJoke()
   });
 });
 
-app.get('/categories', (req,res, next) =>
+app.get('/categories', (req,res, next) => {
+let category = req.query.cat;
+
+if (category) {
+  client.getRandomJoke(category).then(function (joke) {
+    res.render('joke-by-category', {
+      joke: joke.value,
+      category
+    });
+  });
+} else {
 client.getJokeCategories()
   .then((response) => {
     res.render('categories', {
-      response
-    })
-  })
-  .catch((err) => {
-    console.log("There is an error with the category")
-  }));
+      response });
+    });
+  }
+});
 
-app.get('/joke-by-category', (req,res, next) =>
-  client.getRandomJoke(param)
-    .then((response) => {
-      // use the response here
-    }).catch((err) => {
-      // handle error
-    }));
+
+
 
 
 app.listen(3000);
