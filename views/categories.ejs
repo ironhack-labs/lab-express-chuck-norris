@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+  </head>
+  <body class="container">
+    <ul>
+      <% categories.forEach((list) =>{ %>
+        <li><a href="http://localhost:3000/categories?cat=<%= list%>"><%= list %></a></li>
+      <% }) %>
+    </ul>
+
+<a href="http://localhost:3000/">Back home</a><br>
+  </body>
+</html>
