@@ -29,11 +29,13 @@ app.get('/random', (req, res, next) => {
 client.getRandomJoke()
   .then((response) => {
     // use the response here
-    res.render('random', {response});
+    res.render('random', {
+      response});
   }).catch((err) => {
     console.log(err);
   });
 });
+
 
 app.get('/categories', (req,res, next) => {
 let category = req.query.cat;
@@ -53,6 +55,11 @@ client.getJokeCategories()
     });
   }
 });
+
+
+app.get('/search', (req, res, next) => {
+    res.render('search-form')
+    });
 
 
 
