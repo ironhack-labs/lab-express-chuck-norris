@@ -42,14 +42,34 @@ app.get('/categories', (req, res, next) => {
     .then((response) => {
       res.render('categories', {
         categories: response
+      });
       }).catch((err) => {
         // handle error
         console.log(err)
-      });
     });
   }
 });
 
+app.get('/form', (req,res) => {
+  res.render('search-form');
+});
 
+app.post('/search', (req,res,next) =>){
+  let search = req.body.keyword;
+  if(search){
+    client.search(search){
+      .then((response) => {
+        res.render('jokes',{
+          jokes: response,
+          search: search
+        });
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }else{
+    res.render('search-form');
+  }
+}
 
 app.listen(3000);
