@@ -50,7 +50,7 @@ app.get('/categories', (req, res, next) => {
       console.log(err)
     });
   }else{
-    client.getRandomJoke()
+    client.getJokeCategories()
     .then((response) => {
       res.render('categories', {
         categories: response
@@ -71,7 +71,7 @@ app.post('/search', (req,res,next) =>{
   if(search){
     client.search(search)
       .then((response) => {
-        res.render('jokes',{
+        res.render('jokesearch',{
           jokes: response,
           search: search
         });

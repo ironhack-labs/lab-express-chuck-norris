@@ -1,7 +1,6 @@
 <body>
    <h1>Categories</h1>
     <ul>
-      <!-- No me muestra las categorias -> categories.forEach is not a function -->
         <% categories.forEach((category) => { %>
         <li><a href="categories?cat=<%= category %>"><%= category %></a></li>
         <% })%>
