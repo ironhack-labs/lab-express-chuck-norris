@@ -44,7 +44,28 @@ app.get('/categories', (req, res, next)=>{
 
   }
 });
+app.get('/form', (req,res) => {
+  res.render('search-form');
+});
 
-app.listen(3000, () =>{
+app.post('/search', (req,res,next) =>){
+  let search = req.body.keyword;
+  if(search){
+    client.search(search){
+      .then((response) => {
+        res.render('jokes',{
+          jokes: response,
+          search: search
+        });
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }else{
+    res.render('search-form');
+  }
+}
+
+app.listen(3000, () => {
   console.log('server started');
 });
