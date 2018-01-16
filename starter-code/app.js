@@ -66,6 +66,10 @@ app.post('/search', (req,res,next) =>){
   }
 }
 
+app.get('/', (req, res) => {
+  res.render('home');
+});
+
 app.listen(3000, () => {
   console.log('server started');
 });
