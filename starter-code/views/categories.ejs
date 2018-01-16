@@ -1,3 +1,6 @@
   <body>
     <h1>Categories</h1>
-  </body>
+    <% for (i=0; i<data.length; i++){%>
+      <a href="/categories?cat=<%= data[i] %>"><%= data[i] %></a></br>
+    <% } %>
+</body>
