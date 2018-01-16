@@ -1,2 +1,9 @@
-
 <h2> Choose a category</h2>
+
+<ul>
+  <% getCategories.forEach((cat) => { %>
+    <li>
+      <a href="?cat=<%= cat %>"><%= cat %></a>
+    </li>
+  <% }) %>
+</ul>
