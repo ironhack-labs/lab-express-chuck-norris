@@ -3,7 +3,7 @@
     <ul>
       <!-- No me muestra las categorias -> categories.forEach is not a function -->
         <% categories.forEach((category) => { %>
-        <li><a href="http://localhost:3000/categories?cat=<%= category %>"><%= category %></a></li>
+        <li><a href="categories?cat=<%= category %>"><%= category %></a></li>
         <% })%>
     </ul>
 </body>

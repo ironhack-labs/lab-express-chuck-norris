@@ -14,9 +14,21 @@ app.get('/random', (req, res, next) => {
   client.getRandomJoke()
   .then((response) => {
     // use the response here
-    res.render('index', {
+    res.render('random', {
       joke: response
     });
+
+  }).catch((err) => {
+    // handle error
+    console.log(err)
+  });
+});
+
+app.get('/', (req, res, next) => {
+  client.getRandomJoke()
+  .then((response) => {
+    // use the response here
+    res.render('index');
 
   }).catch((err) => {
     // handle error
@@ -31,7 +43,7 @@ app.get('/categories', (req, res, next) => {
     .then((response) => {
       res.render('joke-by-category', {
         joke: response.value,
-        category: category
+        category
       })
     }).catch((err) => {
       // handle error
@@ -54,10 +66,10 @@ app.get('/form', (req,res) => {
   res.render('search-form');
 });
 
-app.post('/search', (req,res,next) =>){
+app.post('/search', (req,res,next) =>{
   let search = req.body.keyword;
   if(search){
-    client.search(search){
+    client.search(search)
       .then((response) => {
         res.render('jokes',{
           jokes: response,
@@ -66,10 +78,10 @@ app.post('/search', (req,res,next) =>){
       }).catch(function (err) {
         console.log(err);
       });
-    }
+
   }else{
     res.render('search-form');
   }
-}
+});
 
 app.listen(3000);
