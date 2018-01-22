@@ -1,0 +1,11 @@
+<body>
+  <h1>Search Result</h1>
+  <p>
+    <a href="/">Go back to home</a>
+  </p>
+  <ul>
+    <% response.items.forEach( (joke) => { %>
+        <li> <%= joke.value %> </li>
+      <% }) %>
+  </ul>
+</body>
