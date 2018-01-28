@@ -1,3 +1,9 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<body>
+  <h1>Categories</h1>
+  <ul>
+    <% response.forEach( (category) => {%>
+      <a href="http://localhost:3000/joke-by-category?cat=<%=category%>">
+        <li><%= category %> </li></a>
+        <% }) %>
+      </ul>
+</body>
