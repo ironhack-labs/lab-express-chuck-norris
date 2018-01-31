@@ -3,11 +3,14 @@ const app = express();
 const Chuck = require('chucknorris-io');
 const client = new Chuck();
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
+
+app.use(express.static('public'));
+app.use(morgan(`Request Method: :method, Request URL: :url, Response Time: :response-time(ms)`));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-
-app.use(morgan(`Request Method: :method, Request URL: :url, Response Time: :response-time(ms)`));
 
 //routes
 app.get('/random', (req, res, next) => {
@@ -16,41 +19,44 @@ app.get('/random', (req, res, next) => {
             res.render('index', {
                 random: response.value
             });
-        }).catch((err) => {
-            // throw err;
-        });
+        }).catch((err) => {});
     //OJO QUE HAY QUEPASAR UN OBJ!!!
     // res.render('index',{ random: random });
 });
 
-let jokeCat;
+
 app.get('/categories', (req, res, next) => {
-    jokeCat = req.query.cat;
+    let jokeCat = req.query.cat;
     client.getJokeCategories()
         .then((response) => {
-            console.log(jokeCat);
             res.render('categories', {
                 response: response
             });
-        }).catch((err) => {
-            // throw err;
-        });
+        }).catch((err) => {});
 });
 
-
 app.get('/joke-by-category', (req, res, next) => {
-    jokeCat = req.query.cat;
+    let jokeCat = req.query.cat;
     client.getRandomJoke(jokeCat)
         .then((response) => {
-            console.log(response);
             res.render('joke-by-category', {
                 random_cat: response.value
             });
-        }).catch((err) => {
-            // throw err;
-        });
+        }).catch((err) => {});
 });
 
+app.get('/search', (req, res, next) => {
+    res.render('search-form');
+});
+
+app.post('/search', (req, res, next) => {
+    let searchTerm = req.body.type;
+    res.redirect(`/joke-by-category?cat=${searchTerm}`);
+});
+
+app.get('/', (req, res, next) => {
+    res.render('home');
+});
 
 app.listen(3000, () => {
     console.log('My first app listening on port 3000!');
