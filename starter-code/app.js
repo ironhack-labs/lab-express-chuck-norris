@@ -21,9 +21,7 @@ app.get("/random", (req, res, next) => {
 app.get("/categories", (req, res, next) =>{
     client.getJokeCategories()
   .then((categorias)=>  {let myCategory = categorias;
-    res.render("categories",{category:myCategory})
-    console.log()
- 
+    res.render("categories",{category:myCategory}) 
   })
   .catch((err)=> {
     // handle error
