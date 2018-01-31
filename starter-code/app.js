@@ -5,7 +5,9 @@ const client = new Chuck();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + 'public'));
+// app.use('stylesheets', express.static(__dirname + '/public'));
+
 app.use(morgan(`Request Method: :method, Request URL: :url, Response Time: :response-time(ms)`));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -50,7 +52,10 @@ app.get('/search', (req, res, next) => {
 });
 
 app.post('/search', (req, res, next) => {
+    let cat = client.getJokeCategories();
+    console.log(`categories: ${ cat }`);
     let searchTerm = req.body.type;
+    // if (searchTerm)
     res.redirect(`/joke-by-category?cat=${searchTerm}`);
 });
 

@@ -4,6 +4,7 @@ body {
     color: chartreuse;
     font-size: 25px;
     width: 600px;
+    margin: 0 auto;
 }
 
 a {
