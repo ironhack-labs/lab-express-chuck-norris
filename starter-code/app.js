@@ -6,14 +6,20 @@ const client = new Chuck();
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 
-app.get('/', (request, response, next) => {
-    // console.log("method: " + request.method, "path: " + request.path, request.query);
-    response.send('<p>Welcome Ironhacker. :)</p>');
+app.get('/', (req, res) => {
+    res.render("index");
   });
 
 app.get('/random', (req, res, next) => {
-    res.render('random');
-  });
+    client
+    .getRandomJoke()
+    .then(response => {
+        res.send(`<p> ${response.value} </p>`);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+})
 
 app.listen(3010, () => {
     // console.log('My first app listening on port 3000!')
