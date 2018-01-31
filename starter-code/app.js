@@ -16,7 +16,6 @@ app.get("/random", (request, response, next) => {
   client
   .getRandomJoke()
   .then(joke => {
-    console.log(joke);
     response.render("index", { joke: joke });
   })
   .catch(err => {
@@ -27,7 +26,16 @@ app.get("/random", (request, response, next) => {
 
 // our first Route
 
-
+app.get("/categories", (request, response, next) => {
+  client
+  .getJokeCategories()
+  .then(categories =>  {
+    response.render("categories", {categories});
+  })
+  .catch((err)=> {
+    // handle error
+  });
+});
 
 // Server Started
 app.listen(3000, () => {
