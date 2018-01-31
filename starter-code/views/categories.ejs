@@ -10,7 +10,11 @@
 
     <ul>
         <% categories.forEach((e) => { %>
-          <li><%= e %></li>
+          <li>
+            <a href='http://localhost:3000/categories?cat=<%= e %>' >
+              <%= e %>
+            </a>
+            </li>
         <% }) %>
       </ul>
   </body>
