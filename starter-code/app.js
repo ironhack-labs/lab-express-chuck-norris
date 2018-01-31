@@ -10,7 +10,7 @@ const expressLayouts = require('express-ejs-layouts');
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-// app.use(expressLayouts);
+app.use(expressLayouts);
 app.use(express.static('static'));
 
 //routes
