@@ -22,7 +22,8 @@ app.get('/categories', (req, res, next) => {
   .then((response)=>  {
     let dev = req.query.dev;
     let sport = req.query.sport;
-    res.render('categories', {response: response.value});
+    //console.log(response.value)
+    res.render('categories', response);
   })
   .catch((err)=> {
     console.log(err);
