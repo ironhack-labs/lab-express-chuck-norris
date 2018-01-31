@@ -21,6 +21,21 @@ app.get('/random', (req, res, next) => {
     });
 })
 
+app.get('/categories', (req, res, next) => {
+    let cat;
+    
+    client
+    .getJokeCategories()
+    .then(response => {
+        cat = response;        
+    })
+    .catch(err => {
+        console.log(err);
+    });
+    res.render("categories", cat);
+})
+
+
 app.listen(3010, () => {
     // console.log('My first app listening on port 3000!')
   });

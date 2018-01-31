@@ -1,3 +1,8 @@
   <body>
     <h1>Categories</h1>
+    <ul>
+      <% categories.forEach((cat => %>
+        <li><%= cat[0] %></li>
+      <% }) %>
+    </ul>
   </body>
