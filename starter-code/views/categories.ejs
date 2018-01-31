@@ -1,3 +1,11 @@
-  <body>
+<body>
     <h1>Categories</h1>
-  </body>
+    <ul>
+      <% for(var i=0; i <response.length; i++) { %>
+        <li>
+          <a href="http://localhost:3000/categories?cat=<%=response[i]%>"><%= response[i] %>
+          </a>
+        </li>
+        <% } %>
+    </ul>
+    </body>//IT DOES NOT WORK BUT LET ME ASSURE YOU IT IS LOGICAL
