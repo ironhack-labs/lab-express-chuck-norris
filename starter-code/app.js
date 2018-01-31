@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 
 //app.use(express.static('public'));
 app.use(expressLayouts);
+app.use(bodyParser.urlencoded({extended: true}));
 app.set("layout", "layouts/main-layout");
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
@@ -46,6 +47,22 @@ app.get("/joke-by-category",(request, response, next) => {
   response.render("joke-by-category", {cat})
 });
 
+app.get("/search",(request, response, next) => {
+  response.render("search-form")
+});
+
+app.post("/search",(request, response, next) => {
+  let searchTerm = request.body.term;
+  client.search(searchTerm)
+  .then(function (jokes) {
+    // to stuff here
+    console.log(jokes)
+    response.render("search", {jokes,searchTerm})
+  }).catch(function (err) {
+    // handle error
+  });
+  
+});
 // Server Started
 app.listen(3000, () => {
   console.log("My first app listening on port 3000!");
