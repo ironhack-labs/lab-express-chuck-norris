@@ -27,6 +27,19 @@ app.get('/random', (req, res, next) => {
 
 });
 
+app.get('/categories', (req, res, next) => {
+    client.getJokeCategories()
+        .then((response) => {
+            let data = {
+                categoriesArray: response
+            };
+            res.render('categories', data);
+        }) .catch((err) => {
+            console.log(error);
+        })
+
+});
+
 //start the app
 app.listen(3000, () => {
     console.log('Chuck Norris jokes')
