@@ -3,6 +3,7 @@ const app = express();
 const Chuck = require("chucknorris-io");
 const client = new Chuck();
 const expressLayouts = require("express-ejs-layouts");
+const bodyParser = require("body-parser");
 
 //app.use(express.static('public'));
 app.use(expressLayouts);
@@ -27,14 +28,22 @@ app.get("/random", (request, response, next) => {
 // our first Route
 
 app.get("/categories", (request, response, next) => {
+  let cat = request.query.cat;
   client
   .getJokeCategories()
   .then(categories =>  {
     response.render("categories", {categories});
+
   })
   .catch((err)=> {
     // handle error
   });
+});
+
+app.get("/joke-by-category",(request, response, next) => {
+  let cat = request.query.cat;
+  console.log(cat)
+  response.render("joke-by-category", {cat})
 });
 
 // Server Started
