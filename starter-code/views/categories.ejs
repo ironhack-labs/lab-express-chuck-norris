@@ -1,3 +1,8 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<body>
+  <h1>Categories</h1>
+  <% for (var i=0; i < categoriesArray.length; i++) {%>
+    <p><a href="http://localhost:3000/categories?cat=<%=categoriesArray[i]%> ">
+      <%= categoriesArray[i] %>
+    </a></p>
+    <%}%>
+</body>
