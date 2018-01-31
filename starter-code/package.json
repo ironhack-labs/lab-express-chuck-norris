@@ -1,16 +1,19 @@
 {
   "name": "lab-chuck-norris",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chucknorris-io": "^1.0.4",
-    "ejs": "^2.5.5",
-    "express": "^4.14.0"
-  }
+    "chucknorris-io": "^1.0.5",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  },
+  "description": ""
 }

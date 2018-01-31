@@ -1,3 +1,8 @@
   <body>
     <h1>Categories</h1>
+    <ul>
+        <% for (i=0;i<response.length;i++) { %>
+            <li><a href="joke-by-category/?cat=<%= response[i]%>"><%= response[i]%></a></li>
+        <% } %>
+    </ul>
   </body>
