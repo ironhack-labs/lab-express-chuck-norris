@@ -1,15 +1,16 @@
 const express = require('express');
-const app = express();
 const Chuck  = require('chucknorris-io');
+
+const app = express();
 const client = new Chuck();
 
 //configure app
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-// our first Route
-app.get('/random', (request, res, next) => {
-    console.log('method: ' , request.method, ' path: ' ,  request.path, ' query: ' ,  request.query);
+// Retrieve random Joke
+app.get('/random', (req, res, next) => {
+    console.log('method: ' , req.method, ' path: ' ,  req.path, ' query: ' ,  req.query);
 
     // Retrieve a random chuck joke
     client.getRandomJoke().then((response) => {
@@ -21,15 +22,17 @@ app.get('/random', (request, res, next) => {
             img: response.iconUrl
         }
 
-        res.render('index', data);
+        res.render('random', data);
     }).catch((err) => {
-        // handle error
+       // handle error
+       res.render('error');
     });
 });
 
 
-app.get('/categories', (request, res, next) => {
-    console.log('method: ' , request.method, ' path: ' ,  request.path, ' query: ' ,  request.query);
+// Retrieve by categories
+app.get('/categories', (req, res, next) => {
+    console.log('method: ' , req.method, ' path: ' ,  req.path, ' query: ' ,  req.query);
 
     // Retrieve a random chuck joke
     client.getJokeCategories().then((response) => {
@@ -43,6 +46,7 @@ app.get('/categories', (request, res, next) => {
         res.render('joke-by-category', data);
     }).catch((err) => {
         // handle error
+        res.render('error');
     });
 });
 
