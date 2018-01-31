@@ -1,9 +1,9 @@
 <body>
     <h1>Categories</h1>
     <ul>
-      <% for(i=0; i <= chisteCategories.length; i++) { %>
+      <% for(i=0; i <= response.length; i++) { %>
         <li>
-          <a href="http://localhost:3000/categories?cat= <%=chisteCategories[i]%>"><%= chisteCategories[i] %>
+          <a href="http://localhost:3000/categories?cat=<%=response[i]%>"><%= response[i] %>
           </a>
         </li>
         <% } %>
