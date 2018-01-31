@@ -2,22 +2,19 @@ const express = require('express');
 const app = express();
 const Chuck  = require('chucknorris-io');
 const client = new Chuck();
-app.use(express.static("public"));
 
 app.set("views",__dirname+"/views");
 app.set("view engine", "ejs");
 
 app.get('/', (req, res, next) => {
-    console.log(req);
-    res.render('index');
+    res.render('index', {joke: 'este es mi index'});
   });
 
   app.get('/random', (req, res, next) => {
-    console.log(req);
     client.getRandomJoke()
   .then((response) => {
-    let joke=response.value;
-    res.render("index",joke)
+    let pedro=response.value;
+    res.render("index",{joke: pedro})
   }).catch((err) => {
    
   });
@@ -25,7 +22,13 @@ app.get('/', (req, res, next) => {
 
   app.get('/categories', (req, res, next) => {
     console.log(req);
-    res.send('<p>Welcome Ironhacker. :)</p>');
+    client.getJokeCategories()
+    .then((response) => {
+      res.render("categories",{data:response})
+    }).catch((err) => {
+     
+    });
+
   });
 
   app.get('/search', (req, res, next) => {
@@ -34,6 +37,6 @@ app.get('/', (req, res, next) => {
   });
 
 
-  app.listen(3000, () => {
-    console.log('My first app listening on port 3000!')
+  app.listen(3001, () => {
+    console.log('My first app listening on port 3001!')
   });
