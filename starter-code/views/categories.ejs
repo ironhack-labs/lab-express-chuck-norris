@@ -1,3 +1,24 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<body>
+
+<h1>Categories</h1>
+ <ul>
+   <% for(i=0; i <= chisteCategories.length; i++) { %>
+     <li>
+       <a href="http://localhost:3000/categories?cat=<%=chisteCategories[i]%>"><%= chisteCategories[i] %>
+       </a>
+     </li>
+     <% } %>
+ </ul>
+
+<!-- // ASI SERÍA SI USAMOS UN FOREACH:  -->
+  <!-- <h1>Categories</h1>
+
+  <ul>
+      <% chisteCategories.forEach((i) => { %>
+        <li><a href="http://localhost:3000/categories?cat=<%=i%>"><%= i %></a></li>
+        <% }) %>
+    </ul>
+ -->
+
+</body>
+
