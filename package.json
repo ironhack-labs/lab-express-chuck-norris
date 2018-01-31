@@ -1,0 +1,22 @@
+{
+  "name": "lab-express-chuck-norris",
+  "version": "1.0.0",
+  "description": "express chuck norris",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KathiaRieser/lab-express-chuck-norris.git"
+  },
+  "author": "Robert Kathia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KathiaRieser/lab-express-chuck-norris/issues"
+  },
+  "homepage": "https://github.com/KathiaRieser/lab-express-chuck-norris#readme",
+  "dependencies": {
+    "chucknorris-io": "^1.0.5"
+  }
+}
