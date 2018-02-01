@@ -1,3 +1,8 @@
-  <body>
-    <h1>Categories</h1>
-  </body>
+<body>
+  <h1>Categories</h1>
+  <ul>
+    <% categorias.forEach((categoriesName)=> { %>
+      <li><a href=<%= categoriesName %>><%= categoriesName %> </a></li>
+    <%})%>
+  </ul>
+</body>
