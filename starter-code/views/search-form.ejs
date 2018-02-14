@@ -1,0 +1,17 @@
+<body>
+  <a href="/">Home</a>
+  <form action="/search">
+    <label for="search-term-input">Search Term?</label>
+    <input id="search-term-input" type="text" name="searchTerm">
+    <input type="submit" value="search">
+  </form>
+  <ul>
+    <% items.forEach(elem => { %>
+      <li>
+        <img src="<%= elem.iconUrl %>" alt="icon">
+        <p><%= elem.value %></p>
+      </li>
+      <hr>
+    <% }) %>
+  </ul>
+</body>

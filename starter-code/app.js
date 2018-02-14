@@ -1,8 +1,9 @@
 const express = require('express');
+const reload = require('reload');
 const app = express();
 const Chuck  = require('chucknorris-io');
 const client = new Chuck();
-var cat = 
+
 
 //make the views path link stuff work idek
 app.set('views', __dirname + '/views');
@@ -23,6 +24,7 @@ app.get('/random', (req, res, next) => {
           <title>random</title>
         </head>
         <body>
+        <a href="/">Home</a>
           <img src="${response.iconUrl}" alt="icon url">
           <p>${response.value}</p>
         </body>
@@ -40,6 +42,7 @@ app.get('/categories', (req, res, next) => {
     res.render('categories', {categories: response});
   })
   .catch((err) => {
+    //handle error
   })
 });
 
@@ -55,9 +58,24 @@ app.get('/randomCategory', (req, res, next) => {
 })
 
 app.get('/search', (req, res, next) => {
+  let data = req.query.searchTerm;
+  if (data !== undefined) {
+    client.search(data)
+    .then((response) => {
+      console.log(response);
+      res.render('search-form', response)
+    })
+    .catch((err) => {
 
+    })
+  } else {
+    res.render('search-form', {items:[]});
+  }
 });
+
+reload(app);
 
 app.listen(3000, () => {
   console.log('Im listening on port 3000 niggu!')
 });
+
