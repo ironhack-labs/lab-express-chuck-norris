@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Chuck Norris Joke Department</title>
+    <link rel="stylesheet" type="css/text" href="stylesheets/style.css">
+  </head>
+  <body>
+    <h1>Search for the joke you know you want!</h1>
+      <form action="/search" method="post" id="formChuck">
+        <input type="text" id="term" name="term">
+      </form>
+      <button type="submit" form="formChuck" value="Submit">Submit</button>
+      <% for(i=0;i<searchJoke.length;i++){ %>
+          <p><%=searchJoke[i].value%></p>
+          <% } %>
+  </body>
+</html>
