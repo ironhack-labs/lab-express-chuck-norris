@@ -1,3 +1,9 @@
   <body>
     <h1>Categories</h1>
+    <ul>
+      <% categories.forEach(elem => { %>
+      <li><a href="/randomCategory?cat=<%= elem %>"><%= elem %></a></li>
+      <% }) %>
+      
+    </ul>
   </body>
