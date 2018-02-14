@@ -1,3 +1,10 @@
   <body>
     <h1>Categories</h1>
+    <form action="/categoryjoke">
+      <% response.forEach((category) => { %>
+        <label for="<%= category %>-input"><%= category %></label>
+        <input value="<%= category %>" id="<%= category %>-input" type="radio" name="cat">
+      <% }); %>
+      <button type="submit">Submit a joke category!</button>
+    </form>
   </body>
