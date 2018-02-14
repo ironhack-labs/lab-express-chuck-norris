@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Chuck Norris Joke Department</title>
+    <link rel="stylesheet" type="css/text" href="../public/stylesheets/style.css">
+  </head>
   <body>
-    <h1>Categories</h1>
+    <img src=https://memegenerator.net/img/instances/500x/72372835/nice-work-team.jpg width="300px", heigth="200px">
+
+    <% for(var i = 0; i < joke.length; i++){ %>
+      <a href="http://localhost:3000/categories?cat=<%= joke[i]%>"><%= joke[i]%></a>
+    <% } %>
   </body>
+</html>
