@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>The Chuck Norris Joke Department</title>
-    <link rel="stylesheet" type="css/text" href="../public/stylesheets/style.css">
-  </head>
-  <body>
 
-  </body>
+<head>
+  <title>The Chuck Norris Joke Department</title>
+  <link rel="stylesheet" type="css/text" href="../public/stylesheets/style.css">
+</head>
+
+<body>
+  <h4>
+    <a href='/'>Home</a>
+  </h4>
+  <h4>
+    <a href='/categories'>Search more categories</a>
+  </h4>
+
+  <h4>
+    <a href='/search'>Search by keyword</a>
+  </h4>
+
+  <% if (joke) { %>
+    <h2>
+      <%= joke %>
+    </h2>
+    <% } %>
+      <h4>
+        <a href='/random'>Show another random joke</a>
+      </h4>
+</body>
+
 </html>

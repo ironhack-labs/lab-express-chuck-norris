@@ -1,0 +1,19 @@
+<h4>
+  <a href='/'>Home</a>
+</h4>
+
+<h4>
+  <a href='/search'>Search again</a>
+</h4>
+
+<h4>
+  <a href='/categories'>Search by categories</a>
+</h4>
+
+<ul>
+  <% joke.forEach(joke => { %>
+    <li>
+      <%=joke.value %>
+    </li>
+    <% }) %>
+</ul>
