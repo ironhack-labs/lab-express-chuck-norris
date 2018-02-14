@@ -10,9 +10,6 @@ app.get("/random", function(req, res, next){
     //req.get("Traigan tributos!");
     client.getRandomJoke()
     .then((response) => {
-        console.log("esto es lo que recibo de la llamada a la api")
-        //var chiste = response;
-        console.log(response)
         res.render("random", {chiste:response.value});
      }).catch((err) => {
     // handle error
@@ -23,16 +20,49 @@ app.get("/random", function(req, res, next){
 
 app.get("/categories", function(req, res, next){
     //req.get("Traigan tributos!");
-    client.getJokeCategories()
-    .then((response) => {
-        console.log("esto es lo que recibo de la llamada a la api")
-        //var chiste = response;
+    console.log(req)
+    if(req.query.cat){
+        client.getRandomJoke(req.query.cat)
+        .then((response) => {
+        // use the response here
+        res.render('joke-by-category', {joke:response.value});
         console.log(response)
+        }).catch((err) => {
+        // handle error
+    });
+    } else {
+        client.getJokeCategories()
+    .then((response) => {        
         res.render("categories", {category:response});
      }).catch((err) => {
     // handle error
-    
+        
      });
+    }
+    
+});
+
+// app.get('joke-by-category', function(req,res, next){
+//     // Retrieve a random chuck joke
+//     client.getRandomJoke('dev')
+//     .then((response) => {
+//     // use the response here
+//     res.render('joke-by-category', {joke:response.value});
+//     console.log(response)
+//     }).catch((err) => {
+//     // handle error
+//  });
+//  });
+
+// search
+
+app.post("/search", function(req, res, next){
+    client.search(searchTerm)
+  .then(function (response) {
+    // to stuff here
+  }).catch(function (err) {
+    // handle error
+  });
 });
 //final
 app.listen(3000, function(err){
