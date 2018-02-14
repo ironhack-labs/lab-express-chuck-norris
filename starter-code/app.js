@@ -13,13 +13,27 @@ app.get("/random", function(req, res, next){
         console.log("esto es lo que recibo de la llamada a la api")
         //var chiste = response;
         console.log(response)
-        res.render("index", {chiste:response.value});
+        res.render("random", {chiste:response.value});
      }).catch((err) => {
     // handle error
     
      });
 });
-// Retrieve a random chuck joke
+// catgories
+
+app.get("/categories", function(req, res, next){
+    //req.get("Traigan tributos!");
+    client.getJokeCategories()
+    .then((response) => {
+        console.log("esto es lo que recibo de la llamada a la api")
+        //var chiste = response;
+        console.log(response)
+        res.render("categories", {category:response});
+     }).catch((err) => {
+    // handle error
+    
+     });
+});
 //final
 app.listen(3000, function(err){
     if(err) console.log(err);
